@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<title>ShipLean social card</title>
+<!-- Source for og-image.png (1200x630). Render at exactly 1200x630, e.g.
+     chrome --headless=new --window-size=1200,630 --screenshot=og-image.png og-card.html -->
+<link rel="stylesheet" href="../tokens/tokens.css">
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; width: 1200px; height: 630px; overflow: hidden; }
+  body {
+    background: var(--color-bg); color: var(--color-text); font-family: var(--font-sans);
+    position: relative; isolation: isolate;
+  }
+  body::before {
+    content: ""; position: absolute; inset: 0; z-index: -1;
+    background-image: linear-gradient(color-mix(in srgb, var(--color-border) 55%, transparent) 1px, transparent 1px),
+                      linear-gradient(90deg, color-mix(in srgb, var(--color-border) 55%, transparent) 1px, transparent 1px);
+    background-size: 44px 44px;
+    -webkit-mask-image: radial-gradient(ellipse 80% 80% at 20% 30%, #000 20%, transparent 70%);
+  }
+  body::after {
+    content: ""; position: absolute; z-index: -1; right: -200px; bottom: -260px; width: 900px; height: 700px;
+    background: radial-gradient(closest-side, color-mix(in srgb, #5cc8f0 30%, transparent), transparent);
+  }
+  .copy { position: absolute; left: 72px; top: 80px; width: 580px; }
+  .brand { display: flex; align-items: center; gap: 12px; font-size: 26px; font-weight: 700; }
+  .brand img { width: 36px; height: 36px; }
+  .pill {
+    display: inline-flex; margin-top: 44px; padding: 7px 14px; border-radius: 999px; font-size: 15px; font-weight: 600;
+    letter-spacing: .05em; text-transform: uppercase; background: var(--color-accent-soft); color: var(--color-accent);
+  }
+  h1 { margin: 20px 0 0; font-size: 64px; line-height: 1.04; letter-spacing: -.035em; font-weight: 700; }
+  .grad { background: linear-gradient(100deg, #5cc8f0, #9db8ff); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  p { margin: 22px 0 0; font-size: 22px; line-height: 1.45; color: var(--color-muted); }
+  .shot {
+    position: absolute; left: 640px; top: 110px; width: 760px; border-radius: 14px; overflow: hidden;
+    border: 1px solid var(--color-border); box-shadow: 0 40px 100px -30px rgb(0 0 0 / .8), 0 0 80px -20px color-mix(in srgb, #5cc8f0 30%, transparent);
+    transform: perspective(1600px) rotateY(-12deg) rotateX(4deg); transform-origin: left center;
+  }
+  .shot img { display: block; width: 100%; }
+</style>
+</head>
+<body>
+  <div class="copy">
+    <div class="brand"><img src="../brand/shiplean-mark-dark.svg" alt="">ShipLean</div>
+    <div class="pill">Open source · Coming soon</div>
+    <h1>Plan less.<br><span class="grad">Ship more.</span></h1>
+    <p>Backlogs, boards and sprints<br>you host yourself.</p>
+  </div>
+  <div class="shot"><img src="../../site/shots/planning-dark.webp" alt=""></div>
+</body>
+</html>
