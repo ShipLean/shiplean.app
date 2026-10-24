@@ -1,13 +1,13 @@
 # ShipLean design assets
 
-Reference material for anyone making something that should look like ShipLean: the website, a social post, a slide or a new screen. ShipLean shares its house style with Codex: the same palette, type and density.
+Reference material for anyone making something that should look like ShipLean: the website, a social post, a slide or a new screen. ShipLean shares its house style with Codex (the same palette, type and density) but has its own mark and brand gradient, so the two never get mixed up.
 
 ## What's here
 
 | Path | What it is |
 |---|---|
-| `brand/shiplean-mark-light.svg` | The mark on light backgrounds: blue gradient square with three backlog rows, shortest last. |
-| `brand/shiplean-mark-dark.svg` | The mark on dark backgrounds: cyan gradient square, navy rows. |
+| `brand/shiplean-mark-light.svg` | The mark on light backgrounds: teal-to-blue gradient square with a white sailboat: a mast with a pennant, a sail made of three backlog rows, and a hull. |
+| `brand/shiplean-mark-dark.svg` | The mark on dark backgrounds: mint-to-cyan gradient square, navy boat. |
 | `brand/shiplean-logo-on-light.svg`, `brand/shiplean-logo-on-dark.svg` | The mark with the **ShipLean** wordmark. The wordmark is live SVG text set in Inter 700, so it needs Inter installed; convert it to outlines before sending it to print. |
 | `brand/shiplean-avatar-mark.png` | 512×512 PNG of the light mark, for the GitHub org avatar. |
 | `brand/favicon.svg` | One file that switches between the light and dark mark with the visitor's theme. |
@@ -31,7 +31,7 @@ Reference material for anyone making something that should look like ShipLean: t
 | `--color-warn` | `#b7701b` | `#f4cf72` | Resolved, warnings |
 | `--color-danger` | `#c2353b` | `#f08a8f` | Over capacity, errors |
 
-The landing page adds one brand gradient for the mark and highlighted headline words: `#2563c9 → #1d7fb8` in light and `#5cc8f0 → #9db8ff` in dark.
+The landing page adds one brand gradient for the mark and highlighted headline words: `#16a089 → #2563c9` (teal to blue) in light and `#3dd6b5 → #5cc8f0` (mint to cyan) in dark. Codex uses blue to sky blue, so keep ShipLean on the teal end.
 
 ## Type
 

@@ -26,20 +26,20 @@
   :root {
     --page-max: 1180px;
     --gutter: 24px;
-    --grad-a: #2563c9;
-    --grad-b: #1d7fb8;
+    --grad-a: #16a089;
+    --grad-b: #2563c9;
     --glow: color-mix(in srgb, var(--color-accent) 22%, transparent);
     --frame-shadow: 0 1px 0 rgb(255 255 255 / .6) inset, 0 30px 80px -30px rgb(16 24 40 / .35), 0 12px 30px -18px rgb(16 24 40 / .25);
     --grid-line: color-mix(in srgb, var(--color-border) 55%, transparent);
   }
   @media (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]) {
-      --grad-a: #5cc8f0; --grad-b: #9db8ff;
+      --grad-a: #3dd6b5; --grad-b: #5cc8f0;
       --frame-shadow: 0 0 0 1px rgb(255 255 255 / .04) inset, 0 40px 100px -30px rgb(0 0 0 / .8), 0 0 80px -20px color-mix(in srgb, #5cc8f0 25%, transparent);
     }
   }
   :root[data-theme="dark"] {
-    --grad-a: #5cc8f0; --grad-b: #9db8ff;
+    --grad-a: #3dd6b5; --grad-b: #5cc8f0;
     --frame-shadow: 0 0 0 1px rgb(255 255 255 / .04) inset, 0 40px 100px -30px rgb(0 0 0 / .8), 0 0 80px -20px color-mix(in srgb, #5cc8f0 25%, transparent);
   }
 
@@ -78,16 +78,12 @@
   }
   .nav .wrap { display: flex; align-items: center; gap: 28px; height: 60px; }
   .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 18px; letter-spacing: -.01em; text-decoration: none; }
-  .mark {
-    width: 26px; height: 26px; border-radius: 7px; position: relative; flex: none;
-    background: linear-gradient(140deg, var(--grad-a), var(--grad-b));
-    box-shadow: 0 4px 14px -4px var(--glow);
-  }
-  .mark::before, .mark::after { content: ""; position: absolute; left: 7px; right: 7px; height: 2px; border-radius: 2px; background: rgb(255 255 255 / .9); }
-  .mark::before { top: 9px; }
-  .mark::after { top: 14px; right: 11px; }
-  :root[data-theme="dark"] .mark::before, :root[data-theme="dark"] .mark::after { background: #06192a; }
-  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .mark::before, :root:not([data-theme="light"]) .mark::after { background: #06192a; } }
+  /* ShipLean mark: a sailboat whose sail is three backlog rows */
+  .mark { width: 28px; height: 28px; flex: none; filter: drop-shadow(0 4px 10px var(--glow)); }
+  .mark-sm { width: 20px; height: 20px; filter: none; }
+  .mark { --mark-fg: #fff; }
+  :root[data-theme="dark"] .mark { --mark-fg: #06192a; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .mark { --mark-fg: #06192a; } }
   .nav-links { display: flex; gap: 22px; font-size: 14px; color: var(--color-muted); }
   .nav-links a { text-decoration: none; }
   .nav-links a:hover { color: var(--color-text); }
@@ -332,16 +328,6 @@
   @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after { animation: none !important; transition: none !important; }
   }
-  /* ShipLean mark: three backlog rows, shortest last */
-  .mark::before { top: 7px; right: 7px; }
-  .mark::after { top: 12px; right: 10px; }
-  .mark i { position: absolute; left: 7px; width: 5px; top: 17px; height: 2px; border-radius: 2px; background: rgb(255 255 255 / .9); }
-  :root[data-theme="dark"] .mark i { background: #06192a; }
-  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .mark i { background: #06192a; } }
-  .brand .mark-sm { width: 20px; height: 20px; border-radius: 6px; }
-  .brand .mark-sm::before { left: 5px; top: 5px; right: 5px; height: 1.6px; }
-  .brand .mark-sm::after { left: 5px; top: 9px; right: 8px; height: 1.6px; }
-  .brand .mark-sm i { left: 5px; top: 13px; width: 4px; height: 1.6px; }
 
   /* Crops for the spotlights */
   .crop.plan img { transform: scale(1.25); transform-origin: 30% 100%; }
@@ -355,6 +341,8 @@
 <!-- SVG icon sprite -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
+    <linearGradient id="mark-g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" style="stop-color:var(--grad-a)"/><stop offset="1" style="stop-color:var(--grad-b)"/></linearGradient>
+    <symbol id="i-mark" viewBox="0 0 26 26"><rect width="26" height="26" rx="7" fill="url(#mark-g)"/><g style="fill:var(--mark-fg)"><rect x="8.2" y="4.5" width="1.8" height="12.4" rx=".9"/><path d="M10 4.5 13.6 5.8 10 7.1z"/><rect x="11" y="8.2" width="3.4" height="2.4" rx="1.2"/><rect x="11" y="11.4" width="6.2" height="2.4" rx="1.2"/><rect x="11" y="14.3" width="9" height="2.4" rx="1.2"/><path d="M4.6 17.9h16.8c.8 0 1.3.9.8 1.6l-1.4 1.9a2 2 0 0 1-1.6.8H7.1a2 2 0 0 1-1.6-.8l-1.7-1.9c-.5-.7 0-1.6.8-1.6Z"/></g></symbol>
     <symbol id="i-gh" viewBox="0 0 24 24"><path fill="currentColor" d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.53-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.19-3.08-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.8 1.19 1.82 1.19 3.08 0 4.41-2.69 5.38-5.25 5.67.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></symbol>
     <symbol id="i-arrow" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 5v14m-6-6 6 6 6-6"/></symbol>
     <symbol id="i-right" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m-6-6 6 6-6 6"/></symbol>
@@ -378,7 +366,7 @@
 
 <header class="nav">
   <div class="wrap">
-    <a class="brand" href="#top"><span class="mark" aria-hidden="true"><i></i></span>ShipLean</a>
+    <a class="brand" href="#top"><svg class="mark" viewBox="0 0 26 26" aria-hidden="true"><use href="#i-mark"/></svg>ShipLean</a>
     <nav class="nav-links">
       <a href="#why">Why ShipLean</a>
       <a href="#tour">Tour</a>
@@ -713,7 +701,7 @@
 
 <footer>
   <div class="wrap">
-    <a class="brand" href="#top" style="font-size:15px"><span class="mark mark-sm" aria-hidden="true"><i></i></span>ShipLean</a>
+    <a class="brand" href="#top" style="font-size:15px"><svg class="mark mark-sm" viewBox="0 0 26 26" aria-hidden="true"><use href="#i-mark"/></svg>ShipLean</a>
     <span>shiplean.app</span>
     <div class="nav-spacer"></div>
     <a href="https://github.com/shiplean">GitHub</a>
