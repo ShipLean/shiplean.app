@@ -6,7 +6,7 @@ Reference material for anyone making something that should look like ShipLean: t
 
 | Path | What it is |
 |---|---|
-| `brand/shiplean-mark-light.svg` | The mark on light backgrounds: teal-to-blue gradient square with a white sailboat: a mast with a pennant, a sail made of three backlog rows, and a hull. |
+| `brand/shiplean-mark-light.svg` | The mark on light backgrounds: teal-to-blue gradient square with a white boat: three backlog rows stacked as a sail, widening down to the hull. |
 | `brand/shiplean-mark-dark.svg` | The mark on dark backgrounds: mint-to-cyan gradient square, navy boat. |
 | `brand/shiplean-logo-on-light.svg`, `brand/shiplean-logo-on-dark.svg` | The mark with the **ShipLean** wordmark. The wordmark is live SVG text set in Inter 700, so it needs Inter installed; convert it to outlines before sending it to print. |
 | `brand/shiplean-avatar-mark.png` | 512×512 PNG of the light mark, for the GitHub org avatar. |
