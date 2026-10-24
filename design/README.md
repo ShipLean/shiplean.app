@@ -48,7 +48,7 @@ The landing page adds one brand gradient for the mark and highlighted headline w
 
 ## Screenshots
 
-The screenshots come from the reference screens in the app repo (`design/screens/*.html`), captured at 1440×900 at 2x by its `design/screenshots.sh`. The variants (`taskboard-people`, `taskboard-settings`, `taskboard-styles`) are the Taskboard in another state.
+The screenshots come from the reference screens in the app repo (`design/screens/*.html`), captured at 1440×900 at 2x by its `design/screenshots.sh`. Variants such as `backlog-tree`, `features-epics`, `import-key`, `import-run`, `work-item-bug` and the `taskboard-*` files are one screen in another state. The website uses only the ones in `site/shots/`.
 
 The website uses 2000px-wide WebP copies of these in `site/shots/` (quality 82). To make one from a PNG:
 

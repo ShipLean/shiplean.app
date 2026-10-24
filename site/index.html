@@ -344,8 +344,9 @@
   .brand .mark-sm i { left: 5px; top: 13px; width: 4px; height: 1.6px; }
 
   /* Crops for the spotlights */
-  .crop.plan img { object-position: left bottom; transform: scale(1.25); transform-origin: 0% 100%; }
-  .crop.styles img { transform: scale(1.3); transform-origin: 50% 50%; }
+  .crop.plan img { transform: scale(1.25); transform-origin: 30% 100%; }
+  .crop.board img { transform: scale(1.35); transform-origin: 60% 0%; }
+  .crop.jira img { object-position: left top; transform: scale(1.19); transform-origin: 100% 0%; }
   .crop.end img { transform: scale(1.75); transform-origin: 50% 50%; }
 </style>
 </head>
@@ -382,8 +383,8 @@
       <a href="#why">Why ShipLean</a>
       <a href="#tour">Tour</a>
       <a href="#forecast">Forecast</a>
-      <a href="#taskboard">Taskboard</a>
-      <a href="#sprint-end">Sprint end</a>
+      <a href="#board">Boards</a>
+      <a href="#jira">Jira import</a>
       <a href="#roadmap">Roadmap</a>
     </nav>
     <div class="nav-spacer"></div>
@@ -400,7 +401,7 @@
     <div class="wrap">
       <span class="pill"><span class="tag">Coming soon</span><span class="dot" aria-hidden="true"></span>Free and open source, built in the open</span>
       <h1>Plan less.<br><span class="grad">Ship more.</span></h1>
-      <p class="lede">ShipLean is a free, open-source planning tool you host yourself. Rank the backlog, plan sprints against what the team can really do and run the sprint on a live taskboard, with a forecast that tells you what fits before anyone asks.</p>
+      <p class="lede">ShipLean is a free, open-source planning tool you host yourself. Rank the backlog, run a Kanban board, plan sprints against what the team can really do and work the sprint on a live taskboard, with a forecast that tells you what fits before anyone asks.</p>
       <div class="cta-row">
         <a class="btn btn-primary" href="https://github.com/shiplean"><svg><use href="#i-gh"/></svg>Follow on GitHub</a>
         <a class="btn btn-ghost" href="#tour">Take the tour<svg><use href="#i-arrow"/></svg></a>
@@ -413,29 +414,29 @@
 
       <div class="stage">
         <div class="side l frame" aria-hidden="true">
-          <img class="only-light" src="shots/sprint-backlog-light.webp" alt="">
-          <img class="only-dark" src="shots/sprint-backlog-dark.webp" alt="">
+          <img class="only-light" src="shots/planning-light.webp" alt="">
+          <img class="only-dark" src="shots/planning-dark.webp" alt="">
         </div>
         <div class="side r frame" aria-hidden="true">
-          <img class="only-light" src="shots/taskboard-light.webp" alt="">
-          <img class="only-dark" src="shots/taskboard-dark.webp" alt="">
+          <img class="only-light" src="shots/work-item-light.webp" alt="">
+          <img class="only-dark" src="shots/work-item-dark.webp" alt="">
         </div>
         <div class="main frame">
           <div class="frame-bar"><i></i><i></i><i></i><span class="url"><svg><use href="#i-lock"/></svg>shiplean.app</span><span class="bal"></span></div>
-          <img class="only-light" src="shots/planning-light.webp" alt="The ShipLean Planning screen: Sprint 24, 25 and 26 stacked above the ranked backlog, with capacity bars and a forecast line for each future sprint" width="2000" height="1250">
-          <img class="only-dark" src="shots/planning-dark.webp" alt="The ShipLean Planning screen in dark mode" width="2000" height="1250">
+          <img class="only-light" src="shots/board-light.webp" alt="The ShipLean Stories board: columns mapped to states, WIP limits, an Expedite swimlane and cards with tags, task roll-ups and assignees" width="2000" height="1250">
+          <img class="only-dark" src="shots/board-dark.webp" alt="The ShipLean Stories board in dark mode" width="2000" height="1250">
         </div>
         <div class="callout c1">
-          <span class="ic" style="background:var(--color-accent-soft);color:var(--color-accent)"><svg><use href="#i-right"/></svg></span>
-          <span><b>→ Sprint 26</b><span class="muted">Forecast at velocity 21</span></span>
+          <span class="ic" style="background:color-mix(in srgb, var(--color-danger) 16%, transparent);color:var(--color-danger)"><svg><use href="#i-board"/></svg></span>
+          <span><b>In review 3/2</b><span class="muted">Over the WIP limit, nothing blocked</span></span>
         </div>
         <div class="callout c2">
-          <span class="ic" style="background:color-mix(in srgb, var(--type-feature) 16%, transparent);color:var(--type-feature)"><svg><use href="#i-bolt"/></svg></span>
-          <span><b>Mei moved SHIP-151</b><span class="muted">into Sprint 25, just now</span></span>
+          <span class="ic" style="background:color-mix(in srgb, var(--type-feature) 16%, transparent);color:var(--type-feature)"><svg><use href="#i-people"/></svg></span>
+          <span><b>Tom, Ana and Mei</b><span class="muted">are on this board with you</span></span>
         </div>
         <div class="callout c3">
           <span class="ic" style="background:color-mix(in srgb, var(--color-ok) 16%, transparent);color:var(--color-ok)"><svg><use href="#i-check"/></svg></span>
-          <span><b>21 / 23 pts</b><span class="muted">2 free in Sprint 24</span></span>
+          <span><b>SHIP-158 → In progress</b><span class="muted">Picked up, assigned to you</span></span>
         </div>
       </div>
     </div>
@@ -475,21 +476,49 @@
     <div class="wrap">
       <div class="sec-head center">
         <div class="eyebrow">Tour</div>
-        <h2>Six screens, one backlog.</h2>
-        <p>Planning, the sprint, the taskboard and capacity are all views over the same work items, so nothing is ever copied between them.</p>
+        <h2>Eight screens, one backlog.</h2>
+        <p>The backlog, the board, the sprint and the taskboard are all views over the same work items, so nothing is ever copied between them.</p>
       </div>
 
       <div class="tour">
         <div class="tabs" role="tablist" aria-label="ShipLean screens">
-          <button class="tab" role="tab" aria-selected="true" data-t="planning"><svg><use href="#i-list"/></svg>Planning</button>
-          <button class="tab" role="tab" aria-selected="false" data-t="sprint"><svg><use href="#i-sprint"/></svg>Sprint backlog</button>
-          <button class="tab" role="tab" aria-selected="false" data-t="taskboard"><svg><use href="#i-board"/></svg>Taskboard</button>
+          <button class="tab" role="tab" aria-selected="true" data-t="backlog"><svg><use href="#i-list"/></svg>Backlog</button>
+          <button class="tab" role="tab" aria-selected="false" data-t="board"><svg><use href="#i-board"/></svg>Boards</button>
+          <button class="tab" role="tab" aria-selected="false" data-t="planning"><svg><use href="#i-sprint"/></svg>Planning</button>
+          <button class="tab" role="tab" aria-selected="false" data-t="taskboard"><svg><use href="#i-states"/></svg>Taskboard</button>
+          <button class="tab" role="tab" aria-selected="false" data-t="work-item"><svg><use href="#i-flag"/></svg>Work item</button>
           <button class="tab" role="tab" aria-selected="false" data-t="capacity"><svg><use href="#i-people"/></svg>Capacity</button>
           <button class="tab" role="tab" aria-selected="false" data-t="sprints"><svg><use href="#i-chart"/></svg>All sprints</button>
-          <button class="tab" role="tab" aria-selected="false" data-t="end"><svg><use href="#i-flag"/></svg>Sprint end</button>
+          <button class="tab" role="tab" aria-selected="false" data-t="settings"><svg><use href="#i-gear"/></svg>Settings</button>
         </div>
 
-        <div class="panel on" id="p-planning" role="tabpanel">
+        <div class="panel on" id="p-backlog" role="tabpanel">
+          <div>
+            <h3>Rank the backlog, top to bottom</h3>
+            <p>One ordered list per level, Epics, Features or Stories, with the sprint each item is in.</p>
+            <ul class="ticks">
+              <li><svg><use href="#i-check"/></svg>New work goes in at the top</li>
+              <li><svg><use href="#i-check"/></svg>Show parents to work by Feature</li>
+              <li><svg><use href="#i-check"/></svg>A Criteria filter and your own columns</li>
+            </ul>
+          </div>
+          <div class="frame"><img class="only-light" src="shots/backlog-light.webp" alt="ShipLean Backlog screen" loading="lazy"><img class="only-dark" src="shots/backlog-dark.webp" alt="ShipLean Backlog screen, dark" loading="lazy"></div>
+        </div>
+
+        <div class="panel" id="p-board" role="tabpanel">
+          <div>
+            <h3>A Kanban board that fits your process</h3>
+            <p>Columns map to states for each type, so one board holds stories and bugs that move differently.</p>
+            <ul class="ticks">
+              <li><svg><use href="#i-check"/></svg>WIP limits that warn without blocking</li>
+              <li><svg><use href="#i-check"/></svg>Split columns and a definition of done</li>
+              <li><svg><use href="#i-check"/></svg>Swimlanes and card style rules</li>
+            </ul>
+          </div>
+          <div class="frame"><img class="only-light" src="shots/board-light.webp" alt="ShipLean Boards screen" loading="lazy"><img class="only-dark" src="shots/board-dark.webp" alt="ShipLean Boards screen, dark" loading="lazy"></div>
+        </div>
+
+        <div class="panel" id="p-planning" role="tabpanel">
           <div>
             <h3>Plan the next few sprints in one list</h3>
             <p>The current sprint, the future sprints and the backlog, stacked in one ranked list.</p>
@@ -499,20 +528,7 @@
               <li><svg><use href="#i-check"/></svg>A forecast line for each sprint the backlog reaches</li>
             </ul>
           </div>
-          <div class="frame"><img class="only-light" src="shots/planning-light.webp" alt="ShipLean Planning screen with sprint sections above the backlog" loading="lazy"><img class="only-dark" src="shots/planning-dark.webp" alt="ShipLean Planning screen, dark" loading="lazy"></div>
-        </div>
-
-        <div class="panel" id="p-sprint" role="tabpanel">
-          <div>
-            <h3>Everything about this sprint on one screen</h3>
-            <p>The goal, the burndown and the stories with their tasks, plus what's ready for someone to pick up.</p>
-            <ul class="ticks">
-              <li><svg><use href="#i-check"/></svg>Burndown against an ideal line</li>
-              <li><svg><use href="#i-check"/></svg>Change state in place from the list</li>
-              <li><svg><use href="#i-check"/></svg>Ready to pick up and In progress now, side by side</li>
-            </ul>
-          </div>
-          <div class="frame"><img class="only-light" src="shots/sprint-backlog-light.webp" alt="ShipLean Sprint backlog with burndown, tasks and a Ready to pick up rail" loading="lazy"><img class="only-dark" src="shots/sprint-backlog-dark.webp" alt="ShipLean Sprint backlog, dark" loading="lazy"></div>
+          <div class="frame"><img class="only-light" src="shots/planning-light.webp" alt="ShipLean Planning screen" loading="lazy"><img class="only-dark" src="shots/planning-dark.webp" alt="ShipLean Planning screen, dark" loading="lazy"></div>
         </div>
 
         <div class="panel" id="p-taskboard" role="tabpanel">
@@ -525,7 +541,20 @@
               <li><svg><use href="#i-check"/></svg>Finished stories fold down to a single line</li>
             </ul>
           </div>
-          <div class="frame"><img class="only-light" src="shots/taskboard-light.webp" alt="ShipLean Sprint Taskboard with stories as rows and task states as columns" loading="lazy"><img class="only-dark" src="shots/taskboard-dark.webp" alt="ShipLean Sprint Taskboard, dark" loading="lazy"></div>
+          <div class="frame"><img class="only-light" src="shots/taskboard-light.webp" alt="ShipLean Taskboard screen" loading="lazy"><img class="only-dark" src="shots/taskboard-dark.webp" alt="ShipLean Taskboard screen, dark" loading="lazy"></div>
+        </div>
+
+        <div class="panel" id="p-work-item" role="tabpanel">
+          <div>
+            <h3>Everything about one story on one page</h3>
+            <p>Description, acceptance criteria, tasks, discussion, links and the full history of every change.</p>
+            <ul class="ticks">
+              <li><svg><use href="#i-check"/></svg>Acceptance criteria as a checklist</li>
+              <li><svg><use href="#i-check"/></svg>Tasks and comments save straight away</li>
+              <li><svg><use href="#i-check"/></svg>If someone saved first, see what they changed</li>
+            </ul>
+          </div>
+          <div class="frame"><img class="only-light" src="shots/work-item-light.webp" alt="ShipLean Work item screen" loading="lazy"><img class="only-dark" src="shots/work-item-dark.webp" alt="ShipLean Work item screen, dark" loading="lazy"></div>
         </div>
 
         <div class="panel" id="p-capacity" role="tabpanel">
@@ -538,7 +567,7 @@
               <li><svg><use href="#i-check"/></svg>Copy last sprint's numbers in one click</li>
             </ul>
           </div>
-          <div class="frame"><img class="only-light" src="shots/capacity-light.webp" alt="ShipLean Capacity screen with points per member and a team total" loading="lazy"><img class="only-dark" src="shots/capacity-dark.webp" alt="ShipLean Capacity screen, dark" loading="lazy"></div>
+          <div class="frame"><img class="only-light" src="shots/capacity-light.webp" alt="ShipLean Capacity screen" loading="lazy"><img class="only-dark" src="shots/capacity-dark.webp" alt="ShipLean Capacity screen, dark" loading="lazy"></div>
         </div>
 
         <div class="panel" id="p-sprints" role="tabpanel">
@@ -551,20 +580,20 @@
               <li><svg><use href="#i-check"/></svg>Overlapping dates caught before they're saved</li>
             </ul>
           </div>
-          <div class="frame"><img class="only-light" src="shots/sprints-light.webp" alt="ShipLean All sprints screen with a velocity chart and sprint table" loading="lazy"><img class="only-dark" src="shots/sprints-dark.webp" alt="ShipLean All sprints screen, dark" loading="lazy"></div>
+          <div class="frame"><img class="only-light" src="shots/sprints-light.webp" alt="ShipLean All sprints screen" loading="lazy"><img class="only-dark" src="shots/sprints-dark.webp" alt="ShipLean All sprints screen, dark" loading="lazy"></div>
         </div>
 
-        <div class="panel" id="p-end" role="tabpanel">
+        <div class="panel" id="p-settings" role="tabpanel">
           <div>
-            <h3>Close the sprint without the shuffle</h3>
-            <p>When a sprint ends with work unfinished, ShipLean asks once where each item should go.</p>
+            <h3>States that match how you work</h3>
+            <p>Rename, add and reorder the states of each type. Colours and totals follow the category, so a rename never breaks a report.</p>
             <ul class="ticks">
-              <li><svg><use href="#i-check"/></svg>Next sprint, top of the backlog, or leave it</li>
-              <li><svg><use href="#i-check"/></svg>A warning if the next sprint goes over</li>
-              <li><svg><use href="#i-check"/></svg>History and velocity stay exactly as they were</li>
+              <li><svg><use href="#i-check"/></svg>Custom states per type, like <em>Triaged</em> or <em>In review</em></li>
+              <li><svg><use href="#i-check"/></svg>A project key that never changes</li>
+              <li><svg><use href="#i-check"/></svg>Members, working days and the velocity window</li>
             </ul>
           </div>
-          <div class="frame"><img class="only-light" src="shots/sprint-end-light.webp" alt="ShipLean Sprint end dialog listing unfinished items and where each one goes" loading="lazy"><img class="only-dark" src="shots/sprint-end-dark.webp" alt="ShipLean Sprint end dialog, dark" loading="lazy"></div>
+          <div class="frame"><img class="only-light" src="shots/settings-light.webp" alt="ShipLean Settings screen" loading="lazy"><img class="only-dark" src="shots/settings-dark.webp" alt="ShipLean Settings screen, dark" loading="lazy"></div>
         </div>
       </div>
     </div>
@@ -594,20 +623,19 @@
         </div>
       </div>
 
-      <div class="spot flip" id="taskboard">
+      <div class="spot flip" id="board">
         <div class="copy">
-          <div class="eyebrow">Taskboard</div>
-          <h2>Make the right cards stand out.</h2>
-          <p>Choose which fields every card shows, colour tags, and add style rules like <em>tagged Blocked</em> or <em>waiting on my review</em>. The first matching rule wins, and every open board picks up the change straight away.</p>
+          <div class="eyebrow">Boards</div>
+          <h2>Columns aren't states.</h2>
+          <p>Each column maps to a state for each type, so <em>Ready</em> can mean New for a story and Triaged for a bug. Set WIP limits, split a column into Doing and Done, write its definition of done, and add an Expedite lane for Priority 1. Drag an unassigned card into an In Progress column and it's yours.</p>
           <div class="stat-row">
-            <div class="stat"><b>Fields</b><span>per card and row</span></div>
-            <div class="stat"><b>Rules</b><span>from simple criteria</span></div>
-            <div class="stat"><b>Live</b><span>for the whole team</span></div>
+            <div class="stat"><b>WIP</b><span>limits that warn, never block</span></div>
+            <div class="stat"><b>Lanes</b><span>from simple criteria</span></div>
           </div>
         </div>
-        <div class="frame crop styles">
-          <img class="only-light" src="shots/taskboard-styles-light.webp" alt="Taskboard settings with style rules for blocked and priority 1 cards" width="2000" height="1250">
-          <img class="only-dark" src="shots/taskboard-styles-dark.webp" alt="Taskboard style rules, dark" width="2000" height="1250">
+        <div class="frame crop board">
+          <img class="only-light" src="shots/board-light.webp" alt="Stories board columns with WIP limits and an Expedite swimlane" width="2000" height="1250">
+          <img class="only-dark" src="shots/board-dark.webp" alt="Stories board, dark" width="2000" height="1250">
         </div>
       </div>
 
@@ -627,11 +655,28 @@
         </div>
       </div>
 
+      <div class="spot flip" id="jira">
+        <div class="copy">
+          <div class="eyebrow">Jira import</div>
+          <h2>Bring your Jira project with you.</h2>
+          <p>Connect, pick a project and review how its issue types, statuses and people map across before anything is written. Comments, attachments, sprints and the change history come too, and nothing is ever written back to Jira.</p>
+          <div class="stat-row">
+            <div class="stat"><b>5 steps</b><span>from connect to run</span></div>
+            <div class="stat"><b>History</b><span>kept as revisions</span></div>
+            <div class="stat"><b>Re-run</b><span>when you're ready</span></div>
+          </div>
+        </div>
+        <div class="frame crop jira">
+          <img class="only-light" src="shots/import-light.webp" alt="Jira import mapping review: issue types, statuses and users" width="2000" height="1250">
+          <img class="only-dark" src="shots/import-dark.webp" alt="Jira import mapping review, dark" width="2000" height="1250">
+        </div>
+      </div>
+
       <div class="minis">
-        <div class="mini"><svg><use href="#i-server"/></svg><h4>Yours to host</h4><p>One install for your whole company, on your own server, with your data.</p></div>
-        <div class="mini"><svg><use href="#i-bolt"/></svg><h4>Live everywhere</h4><p>Moves by teammates animate in place, with a note saying who did what.</p></div>
+        <div class="mini"><svg><use href="#i-server"/></svg><h4>Yours to host</h4><p>One install for every team, on your own server, with a project picker to jump between them.</p></div>
+        <div class="mini"><svg><use href="#i-bolt"/></svg><h4>See who's here</h4><p>Faces of everyone on the same screen, and their moves animate in place as they happen.</p></div>
         <div class="mini"><svg><use href="#i-states"/></svg><h4>Your own states</h4><p>Name the states each project needs; colours follow the category, so totals still add up.</p></div>
-        <div class="mini"><svg><use href="#i-import"/></svg><h4>Bring it from Jira</h4><p>Import an existing Jira project instead of starting from a blank backlog.</p></div>
+        <div class="mini"><svg><use href="#i-sprint"/></svg><h4>Every change kept</h4><p>Each save is a revision, so burndown, velocity and history read from what really happened.</p></div>
       </div>
     </div>
   </section>
@@ -643,14 +688,14 @@
         <div>
           <div class="eyebrow">Open source</div>
           <h2>Built in the open.<br>Coming soon.</h2>
-          <p>ShipLean will be free and open source. The sprint screens are designed and version 1 is being built now. Follow the project on GitHub to watch it take shape and to hear first when it's ready to install.</p>
+          <p>ShipLean will be free and open source. Every screen is designed and version 1 is being built now. Follow the project on GitHub to watch it take shape and to hear first when it's ready to install.</p>
           <div class="cta-row" style="justify-content:flex-start">
             <a class="btn btn-primary" href="https://github.com/shiplean"><svg><use href="#i-gh"/></svg>Follow on GitHub</a>
           </div>
         </div>
         <ol class="road">
-          <li class="done"><span class="node"><svg><use href="#i-check"/></svg></span><div><b>Design<span class="badge">Done</span></b><span>Planning, sprint and taskboard screens, light and dark</span></div></li>
-          <li class="now"><span class="node"></span><div><b>Version 1<span class="badge">Building</span></b><span>Backlogs, boards, sprints, capacity and the taskboard</span></div></li>
+          <li class="done"><span class="node"><svg><use href="#i-check"/></svg></span><div><b>Design<span class="badge">Done</span></b><span>Every v1 screen, light and dark</span></div></li>
+          <li class="now"><span class="node"></span><div><b>Version 1<span class="badge">Building</span></b><span>Backlogs, boards, sprints, the taskboard, work items, settings and Jira import</span></div></li>
           <li><span class="node"></span><div><b>Open source release</b><span>Free to download and host yourself</span></div></li>
           <li><span class="node"></span><div><b>Later</b><span>Roadmaps and delivery plans across teams</span></div></li>
         </ol>

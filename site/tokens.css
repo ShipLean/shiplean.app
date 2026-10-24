@@ -63,6 +63,7 @@
   --control-height: 28px;  /* buttons, inputs, selects */
   --row-height: 32px;      /* table / list rows */
   --rail-width: 280px;     /* right-hand summary rail */
+  --sidebar-width: 216px;  /* left side menu: project picker + navigation */
   --dialog-width: 680px;   /* wide dialogs (sprint end) */
 
   /* Work item types: a separate palette from the UI colours above. Use only on type icons. */
@@ -82,6 +83,7 @@
   --control-height: 32px;
   --row-height: 38px;
   --rail-width: 320px;
+  --sidebar-width: 248px;
 }
 
 @media (prefers-color-scheme: dark) {
