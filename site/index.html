@@ -233,6 +233,17 @@
   .ticks svg { width: 18px; height: 18px; margin-top: 3px; color: var(--color-accent); }
 
   /* Spotlights */
+  .eyebrow .soon { margin-left: 6px; padding: 2px 8px; border-radius: 999px; font-size: 10.5px; background: var(--color-accent-soft); color: var(--color-accent); vertical-align: 1px; }
+  .idflow { display: flex; flex-direction: column; gap: 0; padding: 28px; border: 1px solid var(--color-border); border-radius: 16px; background: var(--color-surface); }
+  .idstep { display: flex; gap: 14px; align-items: center; padding: 16px 18px; border: 1px solid var(--color-border); border-radius: 12px; background: var(--color-bg); }
+  .idstep.on { border-color: var(--color-accent); box-shadow: 0 0 0 3px var(--color-accent-soft); }
+  .idstep .ic { flex: none; width: 38px; height: 38px; border-radius: 10px; display: grid; place-items: center; background: var(--color-accent-soft); color: var(--color-accent); }
+  .idstep .ic svg { width: 20px; height: 20px; }
+  .idstep b { display: block; }
+  .idstep .muted { display: block; font-size: 14px; color: var(--color-muted); }
+  .idarrow { position: relative; height: 34px; margin-left: 36px; border-left: 2px dashed var(--color-border); }
+  .idarrow span { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); font-size: 12px; font-family: var(--font-mono, monospace); color: var(--color-accent); }
+  .idnote { margin: 18px 0 0; font-size: 14px; color: var(--color-muted); }
   .spot { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 64px; align-items: center; }
   .spot + .spot { margin-top: 120px; }
   .spot.flip { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); }
@@ -439,7 +450,7 @@
       <a href="#why">Why ShipLean</a>
       <a href="#agents">Agents</a>
       <a href="#tour">Tour</a>
-      <a href="#forecast">Forecast</a>
+      <a href="#planning">Planning</a>
       <a href="#board">Boards</a>
       <a href="#jira">Jira import</a>
       <a href="#roadmap">Roadmap</a>
@@ -735,19 +746,21 @@
   <!-- ================= SPOTLIGHTS ================= -->
   <section style="padding-top:0">
     <div class="wrap">
-      <div class="spot" id="forecast">
+      <div class="spot" id="planning">
         <div class="copy">
-          <div class="eyebrow">Forecast</div>
-          <h2>Know what fits before you promise it.</h2>
-          <p>ShipLean fills the room left in each planned sprint, then plans the rest of the backlog at your real velocity. A line under the last story that fits shows where each sprint ends, and it moves when someone re-ranks.</p>
+          <div class="eyebrow">Plan to ship</div>
+          <h2>Agile planning, from estimate to ship.</h2>
+          <p>Everything a team does between an idea and a release, in one place. Rank the backlog, estimate it, plan sprints against what the team really delivers, work them on the board and ship. People and agents work from the same plan, so it stays true as the work moves.</p>
           <div class="chips">
-            <span class="chip" style="--c:var(--color-ok)">2 free</span>
-            <span class="chip" style="--c:var(--color-danger)">+3 over</span>
-            <span class="chip" style="--c:var(--color-accent)">→ Sprint 26</span>
+            <span class="chip" style="--c:var(--color-accent)">Plan</span>
+            <span class="chip" style="--c:var(--type-feature)">Estimate</span>
+            <span class="chip" style="--c:var(--color-accent)">Execute</span>
+            <span class="chip" style="--c:var(--type-feature)">Build</span>
+            <span class="chip" style="--c:var(--color-ok)">Ship</span>
           </div>
           <div class="stat-row">
-            <div class="stat"><b>Last 3</b><span>sprints set the velocity</span></div>
-            <div class="stat"><b>Override</b><span>when you know better</span></div>
+            <div class="stat"><b>One plan</b><span>for people and agents</span></div>
+            <div class="stat"><b>Live</b><span>for the whole team</span></div>
           </div>
         </div>
         <div class="frame crop plan">
@@ -772,23 +785,7 @@
         </div>
       </div>
 
-      <div class="spot" id="sprint-end">
-        <div class="copy">
-          <div class="eyebrow">Sprint end</div>
-          <h2>Roll over in one decision.</h2>
-          <p>The first person to open the board after the end date chooses where each unfinished story goes, sees what that does to the next sprint, and applies it for everyone. No story stays behind or moves on by default.</p>
-          <div class="stat-row">
-            <div class="stat"><b>1 dialog</b><span>for the whole team</span></div>
-            <div class="stat"><b>0</b><span>changes to history</span></div>
-          </div>
-        </div>
-        <div class="frame crop end">
-          <img class="only-light" src="shots/sprint-end-light.webp" alt="Sprint end dialog moving two unfinished stories to the next sprint" width="2000" height="1250">
-          <img class="only-dark" src="shots/sprint-end-dark.webp" alt="Sprint end dialog, dark" width="2000" height="1250">
-        </div>
-      </div>
-
-      <div class="spot flip" id="jira">
+      <div class="spot" id="jira">
         <div class="copy">
           <div class="eyebrow">Jira import</div>
           <h2>Import your Jira project.</h2>
@@ -802,6 +799,26 @@
         <div class="frame crop jira">
           <img class="only-light" src="shots/import-light.webp" alt="Jira import mapping review: issue types, statuses and users" width="2000" height="1250">
           <img class="only-dark" src="shots/import-dark.webp" alt="Jira import mapping review, dark" width="2000" height="1250">
+        </div>
+      </div>
+
+      <div class="spot flip" id="sign-in">
+        <div class="copy">
+          <div class="eyebrow">Sign-in <span class="soon">Planned</span></div>
+          <h2>Bring your own sign&#8209;in.</h2>
+          <p>Put ShipLean behind the identity proxy you already run, such as oauth2-proxy, Cloudflare Access, Pomerium, Authelia or Authentik. ShipLean trusts the proxy's signed token and creates each account the first time that person arrives. Nobody signs in twice, and nobody hands out passwords. Password sign-in stays the default.</p>
+          <div class="stat-row">
+            <div class="stat"><b>Any IdP</b><span>through your proxy</span></div>
+            <div class="stat"><b>0</b><span>passwords to manage</span></div>
+          </div>
+        </div>
+        <div class="idflow" aria-label="Sign-in flow: a person signs in at your identity provider, your proxy forwards a signed token, and ShipLean signs them in">
+          <div class="idstep"><span class="ic"><svg><use href="#i-people"/></svg></span><span><b>Your team</b><span class="muted">signs in once, at your identity provider</span></span></div>
+          <div class="idarrow" aria-hidden="true"></div>
+          <div class="idstep"><span class="ic"><svg><use href="#i-shield"/></svg></span><span><b>Your identity proxy</b><span class="muted">oauth2-proxy · Cloudflare Access · Pomerium · Authelia · Authentik</span></span></div>
+          <div class="idarrow" aria-hidden="true"><span>signed token</span></div>
+          <div class="idstep on"><span class="ic"><svg class="mark mark-sm" viewBox="0 0 26 26"><use href="#i-mark"/></svg></span><span><b>ShipLean</b><span class="muted">verifies the token and creates the account on first visit</span></span></div>
+          <p class="idnote">Agents keep their own browser-approved access over MCP. An admin can still disable anyone.</p>
         </div>
       </div>
 
@@ -830,6 +847,7 @@
           <li class="done"><span class="node"><svg><use href="#i-check"/></svg></span><div><b>Design<span class="badge">Done</span></b><span>Every v1 screen, light and dark</span></div></li>
           <li class="now"><span class="node"></span><div><b>Version 1<span class="badge">Building</span></b><span>Backlogs, boards, sprints, the taskboard, work items, settings and Jira import</span></div></li>
           <li class="now"><span class="node"></span><div><b>Agents over MCP<span class="badge">Building</span></b><span>26 tools, browser consent, PR webhooks and a planning guide for agents working in parallel</span></div></li>
+          <li><span class="node"></span><div><b>Bring your own sign-in</b><span>Trust the identity proxy you already run</span></div></li>
           <li><span class="node"></span><div><b>Open source release</b><span>Free to download and host yourself</span></div></li>
           <li><span class="node"></span><div><b>Later</b><span>Roadmaps and delivery plans across teams</span></div></li>
         </ol>
