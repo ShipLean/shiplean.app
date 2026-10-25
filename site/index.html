@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>ShipLean · AI-native project management for teams that ship</title>
-<meta name="description" content="ShipLean is a free, open-source, self-hosted, AI-native planning tool: backlogs, boards and sprints with a forecast that tells you what fits, and an MCP server so your agents can plan and work alongside the team. Coming soon.">
+<meta name="description" content="ShipLean is a free, open-source, self-hosted, AI-native planning tool: backlogs, boards and sprints, a forecast that shows which sprint each backlog item lands in, and an MCP server so your agents plan and work on the same backlog as the team. Coming soon.">
 <meta name="theme-color" content="#e8eef7" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#171e2d" media="(prefers-color-scheme: dark)">
 <link rel="canonical" href="https://shiplean.app/">
@@ -12,7 +12,7 @@
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://shiplean.app/">
 <meta property="og:title" content="ShipLean · AI-native project management, open source and coming soon">
-<meta property="og:description" content="Backlogs, boards and sprints for teams that would rather ship than plan, with an MCP server so your agents plan and work alongside you.">
+<meta property="og:description" content="Backlogs, boards and sprints with a forecast from real velocity, and an MCP server so your agents plan and work on the same backlog as you.">
 <meta property="og:image" content="https://shiplean.app/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -458,7 +458,7 @@
     <div class="wrap">
       <span class="pill"><span class="tag">Coming soon</span><span class="dot" aria-hidden="true"></span>AI-native, free and open source, built in the open</span>
       <h1 class="h1-wide">AI-native project management.<br><span class="grad">built for humans and agents.</span></h1>
-      <p class="lede">ShipLean is a free, open-source planning tool you host yourself. Rank the backlog, run a Kanban board, plan sprints against what the team can really do and work the sprint on a live taskboard, with a forecast that tells you what fits before anyone asks. Connect Claude Code, Cursor or Claude Desktop over MCP and your agents plan, pick up and report work on the same backlog, under their own names.</p>
+      <p class="lede">ShipLean is a free, open-source planning tool you host yourself. Rank the backlog, run a Kanban board, plan sprints against what the team can really do and work the sprint on a live taskboard. A forecast shows which sprint each backlog item lands in. Connect Claude Code, Cursor or Claude Desktop over MCP and your agents plan, pick up and report work on the same backlog, and every change they make carries their name.</p>
       <div class="cta-row">
         <a class="btn btn-primary" href="https://github.com/shiplean"><svg><use href="#i-gh"/></svg>Follow on GitHub</a>
         <a class="btn btn-ghost" href="#tour">Take the tour<svg><use href="#i-arrow"/></svg></a>
@@ -506,8 +506,8 @@
     <div class="wrap">
       <div class="sec-head center">
         <div class="eyebrow">Why ShipLean</div>
-        <h2>Planning should take minutes, not meetings.</h2>
-        <p>Most planning tools grew into everything for everyone. ShipLean does backlogs, boards and sprints well, keeps every screen quiet and dense, and leaves the rest of the day for building.</p>
+        <h2>Plan a sprint in minutes.</h2>
+        <p>Most planning tools try to do everything. ShipLean does backlogs, boards and sprints, and nothing else. Each screen fits on one page.</p>
       </div>
       <div class="pillars">
         <div class="card">
@@ -517,13 +517,13 @@
         </div>
         <div class="card">
           <div class="ic"><svg><use href="#i-chart"/></svg></div>
-          <h3>A forecast you can trust</h3>
-          <p>Velocity comes from what the team actually finished. ShipLean fills each future sprint's free room first, then shows where the rest of the backlog lands.</p>
+          <h3>A forecast from real velocity</h3>
+          <p>Velocity is the points the team finished in its last sprints. ShipLean fills the free room in each planned sprint first, then shows which sprint the rest of the backlog lands in.</p>
         </div>
         <div class="card">
           <div class="ic"><svg><use href="#i-people"/></svg></div>
-          <h3>Work is pulled, not pushed</h3>
-          <p>Capacity is planned for the team as a whole, never person by person. Pick up a task and it's yours; move it to In Progress and it says who's on it.</p>
+          <h3>People pick up work; nobody assigns it</h3>
+          <p>You plan capacity for the whole team, never per person. Pick up a task and it is yours. Move it to In Progress and the card shows who is on it.</p>
         </div>
       </div>
     </div>
@@ -534,8 +534,8 @@
     <div class="wrap">
       <div class="sec-head center">
         <div class="eyebrow">AI-native</div>
-        <h2>Your agents get a seat at the planning table.</h2>
-        <p>ShipLean ships with its own MCP server. Connect Claude Code, Cursor or Claude Desktop in one line and the agent sees the same backlog, boards and sprints as the team, plans and works on them, and signs every change with its own name.</p>
+        <h2>Agents work from the same backlog as people.</h2>
+        <p>ShipLean has an MCP server. Connect Claude Code, Cursor or Claude Desktop with one command. The agent reads and writes the same backlog, boards and sprints as the team, and its name is on every revision and comment it writes.</p>
       </div>
 
       <div class="agent-grid">
@@ -545,11 +545,11 @@
 <span class="t"><code>planning_guide</code><span>guide + 7 templates + 2 lessons from the last retro</span></span>
 <span class="t w"><code>capture_plan</code><span>preview · 1 feature, 6 stories, 23 tasks · 1 warning, 0 errors</span></span>
 <span class="t w"><code>capture_plan</code><span>applied the previewed plan · tags wave:1 lane:F model ctx:55k</span></span>
-<span class="a">Planned. Wave 0.1 can start now. Wave 1 has three lanes, so three leads run side by side; wave 2 waits for all of them.</span>
+<span class="a">Planned. Wave 0.1 can start now. Wave 1 has three lanes, so three leads run at the same time. Wave 2 starts when all three are done.</span>
 <span class="u">Start lane F.</span>
-<span class="t w"><code>pick_up</code><span>SHIP-247 → In progress · Claude Code, for Alex</span></span>
+<span class="t w"><code>pick_up</code><span>SHIP-247 moved to In progress · Claude Code, for Alex</span></span>
 <span class="t"><code>get_brief</code><span>SHIP-248: common brief + task brief + branch feat/240 + report template</span></span>
-<span class="t w"><code>report_task</code><span>SHIP-248 <span class="ok">done</span> · 3 commits · PR #312 linked · 1 left undone → SHIP-271</span></span>
+<span class="t w"><code>report_task</code><span>SHIP-248 <span class="ok">done</span> · 3 commits · PR #312 linked · 1 left undone, now SHIP-271</span></span>
 <span class="t"><code>plan_status</code><span>wave 1 · F 2/5 done · A 1/7 · L 0/7 · wave 2 not startable yet</span></span></pre>
         </div>
         <div>
@@ -564,7 +564,7 @@
             <span><svg><use href="#i-check"/></svg>Cursor</span>
             <span><svg><use href="#i-check"/></svg>Any MCP client</span>
           </div>
-          <p class="agent-note">People approve in the browser, so an agent never sees a password. It starts with read and write; the first time a tool needs <code>plan</code>, ShipLean asks you again rather than assuming. Revoke it from your profile, and a password change cuts every agent off at once.</p>
+          <p class="agent-note">You approve the agent in the browser, so it never sees your password. It starts with read and write. The first time a tool needs <code>plan</code>, ShipLean sends it back to the consent page. Revoke it from your profile; a password change disconnects every agent at once.</p>
         </div>
       </div>
 
@@ -572,22 +572,22 @@
         <div class="card">
           <div class="ic"><svg><use href="#i-plug"/></svg></div>
           <h3>Connect in one line</h3>
-          <p>Add the server, approve it in your browser, done. Standard OAuth with PKCE, so it works with every MCP client that speaks it. Revoke an agent from your profile any time.</p>
+          <p>Add the server and approve it in your browser. It uses standard OAuth with PKCE, so any MCP client that supports OAuth can connect. Revoke an agent from your profile at any time.</p>
         </div>
         <div class="card">
           <div class="ic"><svg><use href="#i-book"/></svg></div>
           <h3>Context and skills, built in</h3>
-          <p>Agents don't just get tools, they get the method. <code>planning_guide</code> hands them ShipLean's own guide to breaking a Feature into waves, lanes and right-sized briefs, plus the lessons from your last retros. In Claude Code it's <code>/plan_feature</code>.</p>
+          <p>The server ships the method as well as the tools. <code>planning_guide</code> returns ShipLean's guide to splitting a Feature into waves, lanes and briefs sized to one agent's context, plus the lessons from your project's last retros. In Claude Code it is <code>/plan_feature</code>.</p>
         </div>
         <div class="card">
           <div class="ic"><svg><use href="#i-layers"/></svg></div>
           <h3>Parallel by design</h3>
-          <p>A plan is a Feature, one Story per lane, one Task per agent. Everything in a wave runs at once. <code>get_brief</code> is each agent's whole prompt, <code>report_task</code> lands its result and links the PR, and <code>plan_status</code> is the status table nobody keeps by hand.</p>
+          <p>A plan is a Feature, one Story per lane and one Task per agent. Everything in a wave runs at once. <code>get_brief</code> returns an agent's whole prompt. <code>report_task</code> records its result, links the PR and moves the task on. <code>plan_status</code> reads the status table from the work items, so nobody maintains one.</p>
         </div>
         <div class="card">
           <div class="ic"><svg><use href="#i-shield"/></svg></div>
           <h3>Preview, then apply</h3>
-          <p>Anything that moves many items comes back as a preview first, and the agent applies exactly that. Read, write and plan are separate scopes, asked for only when needed. Every revision and comment names the agent and who it acted for.</p>
+          <p>Any tool that moves many items returns a preview first, and the agent applies exactly that preview. Read, write and plan are separate scopes, and the agent asks for plan only when a tool needs it. Every revision and comment names the agent and the person it acted for.</p>
         </div>
       </div>
 
@@ -599,7 +599,7 @@
         <div class="tool-group"><h4>Backlog</h4><ul><li>review_backlog</li><li>sprint_review</li><li>move_to_sprint</li><li>reorder</li></ul></div>
         <div class="tool-group"><h4>Status</h4><ul><li>whats_changed_since</li><li>feature_progress</li><li>sprint_status</li></ul></div>
         <div class="tool-group"><h4>Planning<span class="new">New</span></h4><ul><li>planning_guide</li><li>capture_plan</li><li>get_brief</li><li>report_task</li><li>plan_status</li><li class="prompt">/plan_feature</li></ul></div>
-        <p class="tools-note"><b>26 tools and a prompt, behind one URL.</b> Pull requests from GitHub or GitLab link themselves to stories by key and close them on merge, so an agent's work lands on the board with no tidying up. Next: search that understands meaning across every project, and agent moves that flash on the board like a teammate's drag.</p>
+        <p class="tools-note"><b>26 tools and one prompt behind one URL.</b> ShipLean links a GitHub or GitLab pull request to each story named in its title or branch, and closes the story when the pull request merges. Next: search that matches meaning as well as words across every project, and a flash on the board when an agent moves a card, the same as for a teammate's drag.</p>
       </div>
     </div>
   </section>
@@ -610,7 +610,7 @@
       <div class="sec-head center">
         <div class="eyebrow">Tour</div>
         <h2>Eight screens, one backlog.</h2>
-        <p>The backlog, the board, the sprint and the taskboard are all views over the same work items, so nothing is ever copied between them.</p>
+        <p>The backlog, the board, the sprint and the taskboard are views over the same work items, so nothing is copied between them.</p>
       </div>
 
       <div class="tour">
@@ -640,7 +640,7 @@
 
         <div class="panel" id="p-board" role="tabpanel">
           <div>
-            <h3>A Kanban board that fits your process</h3>
+            <h3>A Kanban board with your own columns and states</h3>
             <p>Columns map to states for each type, so one board holds stories and bugs that move differently.</p>
             <ul class="ticks">
               <li><svg><use href="#i-check"/></svg>WIP limits that warn without blocking</li>
@@ -692,10 +692,10 @@
 
         <div class="panel" id="p-capacity" role="tabpanel">
           <div>
-            <h3>Capacity for the team, not a timesheet</h3>
-            <p>Each person enters their own points. Only the team total is compared with the sprint.</p>
+            <h3>Capacity as a team total</h3>
+            <p>Each person enters their own points. ShipLean compares only the team total with the sprint.</p>
             <ul class="ticks">
-              <li><svg><use href="#i-check"/></svg>A note for the low weeks, like <em>Off Thu–Fri</em></li>
+              <li><svg><use href="#i-check"/></svg>A note for the low weeks, like <em>Off Thu and Fri</em></li>
               <li><svg><use href="#i-check"/></svg>A sense check against velocity</li>
               <li><svg><use href="#i-check"/></svg>Copy last sprint's numbers in one click</li>
             </ul>
@@ -710,7 +710,7 @@
             <ul class="ticks">
               <li><svg><use href="#i-check"/></svg>Committed vs completed for the last five sprints</li>
               <li><svg><use href="#i-check"/></svg>A new sprint with sensible defaults</li>
-              <li><svg><use href="#i-check"/></svg>Overlapping dates caught before they're saved</li>
+              <li><svg><use href="#i-check"/></svg>The form refuses overlapping dates</li>
             </ul>
           </div>
           <div class="frame"><img class="only-light" src="shots/sprints-light.webp" alt="ShipLean All sprints screen" loading="lazy"><img class="only-dark" src="shots/sprints-dark.webp" alt="ShipLean All sprints screen, dark" loading="lazy"></div>
@@ -718,7 +718,7 @@
 
         <div class="panel" id="p-settings" role="tabpanel">
           <div>
-            <h3>States that match how you work</h3>
+            <h3>Your own states for each type</h3>
             <p>Rename, add and reorder the states of each type. Colours and totals follow the category, so a rename never breaks a report.</p>
             <ul class="ticks">
               <li><svg><use href="#i-check"/></svg>Custom states per type, like <em>Triaged</em> or <em>In review</em></li>
@@ -739,7 +739,7 @@
         <div class="copy">
           <div class="eyebrow">Forecast</div>
           <h2>Know what fits before you promise it.</h2>
-          <p>ShipLean fills the room left in each planned sprint, then plans the rest of the backlog at your real velocity. A line under the last story that fits shows where each sprint ends, and it moves the moment someone re-ranks.</p>
+          <p>ShipLean fills the room left in each planned sprint, then plans the rest of the backlog at your real velocity. A line under the last story that fits shows where each sprint ends, and it moves when someone re-ranks.</p>
           <div class="chips">
             <span class="chip" style="--c:var(--color-ok)">2 free</span>
             <span class="chip" style="--c:var(--color-danger)">+3 over</span>
@@ -776,7 +776,7 @@
         <div class="copy">
           <div class="eyebrow">Sprint end</div>
           <h2>Roll over in one decision.</h2>
-          <p>Unfinished stories don't quietly stay behind or pile into the next sprint. The first person to open the board after the end date chooses where each one goes, sees what that does to the next sprint, and applies it for everyone.</p>
+          <p>The first person to open the board after the end date chooses where each unfinished story goes, sees what that does to the next sprint, and applies it for everyone. No story stays behind or moves on by default.</p>
           <div class="stat-row">
             <div class="stat"><b>1 dialog</b><span>for the whole team</span></div>
             <div class="stat"><b>0</b><span>changes to history</span></div>
@@ -791,8 +791,8 @@
       <div class="spot flip" id="jira">
         <div class="copy">
           <div class="eyebrow">Jira import</div>
-          <h2>Bring your Jira project with you.</h2>
-          <p>Connect, pick a project and review how its issue types, statuses and people map across before anything is written. Comments, attachments, sprints and the change history come too, and nothing is ever written back to Jira.</p>
+          <h2>Import your Jira project.</h2>
+          <p>Connect, pick a project and review how its issue types, statuses and people map across before ShipLean writes anything. Comments, attachments, sprints and the change history come too. ShipLean never writes to Jira.</p>
           <div class="stat-row">
             <div class="stat"><b>5 steps</b><span>from connect to run</span></div>
             <div class="stat"><b>History</b><span>kept as revisions</span></div>
@@ -806,10 +806,10 @@
       </div>
 
       <div class="minis">
-        <div class="mini"><svg><use href="#i-server"/></svg><h4>Yours to host</h4><p>One install for every team, on your own server, with a project picker to jump between them.</p></div>
-        <div class="mini"><svg><use href="#i-bolt"/></svg><h4>See who's here</h4><p>Faces of everyone on the same screen, and their moves animate in place as they happen.</p></div>
+        <div class="mini"><svg><use href="#i-server"/></svg><h4>Self-hosted</h4><p>One install on your own server holds every team's project, with a project picker to move between them.</p></div>
+        <div class="mini"><svg><use href="#i-bolt"/></svg><h4>Who is on this screen</h4><p>The avatar of everyone on the same screen, and their card moves animate in place as they happen.</p></div>
         <div class="mini"><svg><use href="#i-states"/></svg><h4>Your own states</h4><p>Name the states each project needs; colours follow the category, so totals still add up.</p></div>
-        <div class="mini"><svg><use href="#i-sprint"/></svg><h4>Every change kept</h4><p>Each save is a revision, so burndown, velocity and history read from what really happened.</p></div>
+        <div class="mini"><svg><use href="#i-sprint"/></svg><h4>Every change kept</h4><p>Each save is a revision, so burndown, velocity and history are computed from the revisions, not from today's values.</p></div>
       </div>
     </div>
   </section>
@@ -821,7 +821,7 @@
         <div>
           <div class="eyebrow">Open source</div>
           <h2>Built in the open.<br>Coming soon.</h2>
-          <p>ShipLean will be free and open source. Every screen is designed and version 1 is being built now. Follow the project on GitHub to watch it take shape and to hear first when it's ready to install.</p>
+          <p>ShipLean will be free and open source. Every screen is designed and version 1 is in progress. Follow the project on GitHub to see each change land and to hear when it is ready to install.</p>
           <div class="cta-row" style="justify-content:flex-start">
             <a class="btn btn-primary" href="https://github.com/shiplean"><svg><use href="#i-gh"/></svg>Follow on GitHub</a>
           </div>
