@@ -3,16 +3,16 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ShipLean · Lean planning for teams that ship</title>
-<meta name="description" content="ShipLean is a free, open-source, self-hosted planning tool: backlogs, boards and sprints with a forecast that tells you what fits. Coming soon.">
+<title>ShipLean · AI-native project management for teams that ship</title>
+<meta name="description" content="ShipLean is a free, open-source, self-hosted, AI-native planning tool: backlogs, boards and sprints with a forecast that tells you what fits, and an MCP server so your agents can plan and work alongside the team. Coming soon.">
 <meta name="theme-color" content="#e8eef7" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#171e2d" media="(prefers-color-scheme: dark)">
 <link rel="canonical" href="https://shiplean.app/">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://shiplean.app/">
-<meta property="og:title" content="ShipLean · Open source and coming soon">
-<meta property="og:description" content="Backlogs, boards and sprints for teams that would rather ship than plan.">
+<meta property="og:title" content="ShipLean · AI-native project management, open source and coming soon">
+<meta property="og:description" content="Backlogs, boards and sprints for teams that would rather ship than plan, with an MCP server so your agents plan and work alongside you.">
 <meta property="og:image" content="https://shiplean.app/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -329,6 +329,68 @@
     *, *::before, *::after { animation: none !important; transition: none !important; }
   }
 
+  /* ---------- AI-native / agents ---------- */
+  .h1-wide { max-width: 1000px; font-size: clamp(36px, 5.6vw, 66px); }
+  .agent-grid { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 6fr); gap: 40px; align-items: start; margin-top: 56px; }
+  .agent-note { margin: 18px 0 0; font-size: 15px; color: var(--color-muted); }
+  .agent-note code { font-family: var(--font-mono); font-size: .92em; padding: 1px 5px; border-radius: 5px; background: var(--color-surface-2); color: var(--color-text); }
+  .term {
+    display: flex; flex-direction: column; border-radius: 14px; overflow: hidden;
+    background: var(--color-surface); border: 1px solid var(--color-border); box-shadow: var(--frame-shadow);
+    font-family: var(--font-mono); font-size: 13px; line-height: 1.5;
+  }
+  .term .frame-bar .url { font-family: var(--font-sans); }
+  .term pre { margin: 0; padding: 18px 20px; overflow-x: auto; white-space: pre-wrap; word-break: break-word; flex: 1; }
+  .term .u { color: var(--color-text); font-weight: 600; }
+  .term .u::before { content: "› "; color: var(--color-accent); }
+  .term .t { display: flex; gap: 10px; align-items: baseline; margin: 10px 0 0; color: var(--color-muted); }
+  .term .t code {
+    flex: none; padding: 1px 7px; border-radius: 6px; font-size: 12px; font-weight: 600;
+    background: var(--color-accent-soft); color: var(--color-accent);
+  }
+  .term .t.w code { background: color-mix(in srgb, var(--type-feature) 16%, transparent); color: var(--type-feature); }
+  .term .a { margin: 12px 0 0; color: var(--color-text); }
+  .term .a + .u { margin-top: 18px; display: block; }
+  .term .ok { color: var(--color-ok); }
+  .connect {
+    display: flex; align-items: center; gap: 12px; margin: 22px 0 0; padding: 12px 14px; border-radius: 10px;
+    background: var(--color-surface-2); border: 1px solid var(--color-border); font-family: var(--font-mono); font-size: 13px;
+    flex-wrap: wrap; row-gap: 4px;
+  }
+  .connect .p { color: var(--color-accent); font-weight: 700; }
+  .connect .n { color: var(--color-muted); }
+  .clients { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 16px; }
+  .clients span {
+    display: inline-flex; align-items: center; gap: 6px; padding: 5px 11px; border-radius: 999px; font-size: 13px; font-weight: 500;
+    background: var(--color-surface); border: 1px solid var(--color-border);
+  }
+  .clients svg { width: 14px; height: 14px; color: var(--color-ok); }
+  .pillars.four { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .pillars.four .card { padding: 24px; }
+  .pillars.four .card h3 { font-size: 17.5px; }
+  .pillars.four .card p { font-size: 14.5px; }
+  .card code, .tools code { font-family: var(--font-mono); font-size: .92em; padding: 1px 5px; border-radius: 5px; background: var(--color-surface-2); color: var(--color-text); }
+  .tools { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin-top: 40px; }
+  .tool-group { padding: 16px 16px 14px; border-radius: 14px; background: var(--color-surface); border: 1px solid var(--color-border); }
+  .tool-group h4 { margin: 0 0 10px; font-size: 12.5px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: var(--color-muted); display: flex; align-items: center; gap: 6px; }
+  .tool-group h4 .new { margin-left: auto; padding: 1px 6px; border-radius: 999px; font-size: 10px; letter-spacing: .04em; background: var(--color-accent-soft); color: var(--color-accent); }
+  .tool-group ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 5px; }
+  .tool-group li { font-family: var(--font-mono); font-size: 12.5px; color: var(--color-text); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .tool-group li.prompt { color: var(--color-muted); }
+  .tools-note { margin: 0; padding: 16px; border-radius: 14px; font-size: 14px; line-height: 1.5; color: var(--color-muted); background: var(--color-accent-soft); }
+  .tools-note b { color: var(--color-text); }
+  .crop.consent { aspect-ratio: 16 / 10; }
+  .crop.consent img { object-position: 0 0; transform: scale(2.2); transform-origin: 56% 7%; }
+  @media (max-width: 980px) {
+    .agent-grid, .pillars.four { grid-template-columns: minmax(0, 1fr); }
+    .pillars.four { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+  @media (max-width: 720px) {
+    .tools { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .pillars.four { grid-template-columns: minmax(0, 1fr); }
+    .term pre { padding: 14px; font-size: 12px; }
+  }
+
   /* Crops for the spotlights */
   .crop.plan img { transform: scale(1.25); transform-origin: 30% 100%; }
   .crop.board img { transform: scale(1.35); transform-origin: 60% 0%; }
@@ -361,6 +423,12 @@
     <symbol id="i-import" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m-5-5 5 5 5-5"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></g></symbol>
     <symbol id="i-bolt" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z"/></symbol>
     <symbol id="i-states" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2"><circle cx="5" cy="12" r="2.5"/><circle cx="12" cy="12" r="2.5"/><circle cx="19" cy="12" r="2.5"/><path d="M7.5 12h2M14.5 12h2"/></g></symbol>
+    <symbol id="i-agent" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="12" rx="3"/><path d="M12 8V4m-3 0h6"/><circle cx="9" cy="14" r="1" fill="currentColor"/><circle cx="15" cy="14" r="1" fill="currentColor"/><path d="M9.5 17.5h5"/></g></symbol>
+    <symbol id="i-plug" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3v5m6-5v5"/><path d="M6 8h12v3a6 6 0 0 1-12 0V8Z"/><path d="M12 17v4"/></g></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4.5 6v5.5c0 4.6 3.2 8 7.5 9.5 4.3-1.5 7.5-4.9 7.5-9.5V6L12 3Z"/><path d="m9 12 2 2 4-4"/></g></symbol>
+    <symbol id="i-layers" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 9 5-9 5-9-5 9-5Z"/><path d="m3 13 9 5 9-5"/></g></symbol>
+    <symbol id="i-book" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2V5Z"/><path d="M4 19a2 2 0 0 1 2-2h13"/><path d="M9 7h6"/></g></symbol>
+    <symbol id="i-merge" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="5" r="2"/><circle cx="6" cy="19" r="2"/><circle cx="18" cy="12" r="2"/><path d="M6 7v10"/><path d="M6 7c0 5 10 5 10 5"/></g></symbol>
   </defs>
 </svg>
 
@@ -369,6 +437,7 @@
     <a class="brand" href="#top"><svg class="mark" viewBox="0 0 26 26" aria-hidden="true"><use href="#i-mark"/></svg>ShipLean</a>
     <nav class="nav-links">
       <a href="#why">Why ShipLean</a>
+      <a href="#agents">Agents</a>
       <a href="#tour">Tour</a>
       <a href="#forecast">Forecast</a>
       <a href="#board">Boards</a>
@@ -387,9 +456,9 @@
   <!-- ================= HERO ================= -->
   <div class="hero">
     <div class="wrap">
-      <span class="pill"><span class="tag">Coming soon</span><span class="dot" aria-hidden="true"></span>Free and open source, built in the open</span>
-      <h1>Plan less.<br><span class="grad">Ship more.</span></h1>
-      <p class="lede">ShipLean is a free, open-source planning tool you host yourself. Rank the backlog, run a Kanban board, plan sprints against what the team can really do and work the sprint on a live taskboard, with a forecast that tells you what fits before anyone asks.</p>
+      <span class="pill"><span class="tag">Coming soon</span><span class="dot" aria-hidden="true"></span>AI-native, free and open source, built in the open</span>
+      <h1 class="h1-wide">AI-native project management.<br><span class="grad">Plan less. Ship more.</span></h1>
+      <p class="lede">ShipLean is a free, open-source planning tool you host yourself. Rank the backlog, run a Kanban board, plan sprints against what the team can really do and work the sprint on a live taskboard, with a forecast that tells you what fits before anyone asks. Connect Claude Code, Cursor or Claude Desktop over MCP and your agents plan, pick up and report work on the same backlog, under their own names.</p>
       <div class="cta-row">
         <a class="btn btn-primary" href="https://github.com/shiplean"><svg><use href="#i-gh"/></svg>Follow on GitHub</a>
         <a class="btn btn-ghost" href="#tour">Take the tour<svg><use href="#i-arrow"/></svg></a>
@@ -398,6 +467,7 @@
         <span><svg><use href="#i-check"/></svg>Free and open source</span>
         <span><svg><use href="#i-check"/></svg>Self-hosted</span>
         <span><svg><use href="#i-check"/></svg>Live for the whole team</span>
+        <span><svg><use href="#i-check"/></svg>MCP for your agents</span>
       </div>
 
       <div class="stage">
@@ -424,7 +494,7 @@
         </div>
         <div class="callout c3">
           <span class="ic" style="background:color-mix(in srgb, var(--color-ok) 16%, transparent);color:var(--color-ok)"><svg><use href="#i-check"/></svg></span>
-          <span><b>SHIP-158 → In progress</b><span class="muted">Picked up, assigned to you</span></span>
+          <span><b>SHIP-158 → In progress</b><span class="muted">Picked up by Claude Code, for Alex</span></span>
         </div>
       </div>
     </div>
@@ -455,6 +525,81 @@
           <h3>Work is pulled, not pushed</h3>
           <p>Capacity is planned for the team as a whole, never person by person. Pick up a task and it's yours; move it to In Progress and it says who's on it.</p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= AI-NATIVE / AGENTS ================= -->
+  <section id="agents" style="padding-top:0">
+    <div class="wrap">
+      <div class="sec-head center">
+        <div class="eyebrow">AI-native</div>
+        <h2>Your agents get a seat at the planning table.</h2>
+        <p>ShipLean ships with its own MCP server. Connect Claude Code, Cursor or Claude Desktop in one line and the agent sees the same backlog, boards and sprints as the team, plans and works on them, and signs every change with its own name.</p>
+      </div>
+
+      <div class="agent-grid">
+        <div class="term">
+          <div class="frame-bar"><i></i><i></i><i></i><span class="url"><svg><use href="#i-agent"/></svg>Claude Code · connected to ShipLean</span><span class="bal"></span></div>
+<pre><span class="u">Break SHIP-240 down so three agents can build it in parallel.</span>
+<span class="t"><code>planning_guide</code><span>guide + 7 templates + 2 lessons from the last retro</span></span>
+<span class="t w"><code>capture_plan</code><span>preview · 1 feature, 6 stories, 23 tasks · 1 warning, 0 errors</span></span>
+<span class="t w"><code>capture_plan</code><span>applied the previewed plan · tags wave:1 lane:F model ctx:55k</span></span>
+<span class="a">Planned. Wave 0.1 can start now. Wave 1 has three lanes, so three leads run side by side; wave 2 waits for all of them.</span>
+<span class="u">Start lane F.</span>
+<span class="t w"><code>pick_up</code><span>SHIP-247 → In progress · Claude Code, for Alex</span></span>
+<span class="t"><code>get_brief</code><span>SHIP-248: common brief + task brief + branch feat/240 + report template</span></span>
+<span class="t w"><code>report_task</code><span>SHIP-248 <span class="ok">done</span> · 3 commits · PR #312 linked · 1 left undone → SHIP-271</span></span>
+<span class="t"><code>plan_status</code><span>wave 1 · F 2/5 done · A 1/7 · L 0/7 · wave 2 not startable yet</span></span></pre>
+        </div>
+        <div>
+          <div class="frame crop consent">
+            <img class="only-light" src="shots/authorize-light.webp" alt="ShipLean's consent page: Claude Code wants to connect as you, with read, write and plan scopes to allow or deny" loading="lazy" width="1440" height="900">
+            <img class="only-dark" src="shots/authorize-dark.webp" alt="ShipLean's consent page, dark" loading="lazy" width="1440" height="900">
+          </div>
+          <div class="connect"><span class="p">$</span><span>claude mcp add --transport http shiplean</span><span class="n">https://your.shiplean/mcp</span></div>
+          <div class="clients">
+            <span><svg><use href="#i-check"/></svg>Claude Code</span>
+            <span><svg><use href="#i-check"/></svg>Claude Desktop</span>
+            <span><svg><use href="#i-check"/></svg>Cursor</span>
+            <span><svg><use href="#i-check"/></svg>Any MCP client</span>
+          </div>
+          <p class="agent-note">People approve in the browser, so an agent never sees a password. It starts with read and write; the first time a tool needs <code>plan</code>, ShipLean asks you again rather than assuming. Revoke it from your profile, and a password change cuts every agent off at once.</p>
+        </div>
+      </div>
+
+      <div class="pillars four">
+        <div class="card">
+          <div class="ic"><svg><use href="#i-plug"/></svg></div>
+          <h3>Connect in one line</h3>
+          <p>Add the server, approve it in your browser, done. Standard OAuth with PKCE, so it works with every MCP client that speaks it. Revoke an agent from your profile any time.</p>
+        </div>
+        <div class="card">
+          <div class="ic"><svg><use href="#i-book"/></svg></div>
+          <h3>Context and skills, built in</h3>
+          <p>Agents don't just get tools, they get the method. <code>planning_guide</code> hands them ShipLean's own guide to breaking a Feature into waves, lanes and right-sized briefs, plus the lessons from your last retros. In Claude Code it's <code>/plan_feature</code>.</p>
+        </div>
+        <div class="card">
+          <div class="ic"><svg><use href="#i-layers"/></svg></div>
+          <h3>Parallel by design</h3>
+          <p>A plan is a Feature, one Story per lane, one Task per agent. Everything in a wave runs at once. <code>get_brief</code> is each agent's whole prompt, <code>report_task</code> lands its result and links the PR, and <code>plan_status</code> is the status table nobody keeps by hand.</p>
+        </div>
+        <div class="card">
+          <div class="ic"><svg><use href="#i-shield"/></svg></div>
+          <h3>Preview, then apply</h3>
+          <p>Anything that moves many items comes back as a preview first, and the agent applies exactly that. Read, write and plan are separate scopes, asked for only when needed. Every revision and comment names the agent and who it acted for.</p>
+        </div>
+      </div>
+
+      <div class="tools">
+        <div class="tool-group"><h4>Orient</h4><ul><li>list_projects</li><li>search</li><li>get_work_item</li></ul></div>
+        <div class="tool-group"><h4>Capture</h4><ul><li>capture_work</li><li>break_down</li><li>refine_work_item</li><li>comment</li><li>link</li></ul></div>
+        <div class="tool-group"><h4>Work</h4><ul><li>find_work_to_pick_up</li><li>pick_up</li><li>update_progress</li><li>hand_back</li></ul></div>
+        <div class="tool-group"><h4>Sprint</h4><ul><li>create_sprint</li><li>plan_sprint</li><li>end_sprint</li></ul></div>
+        <div class="tool-group"><h4>Backlog</h4><ul><li>review_backlog</li><li>sprint_review</li><li>move_to_sprint</li><li>reorder</li></ul></div>
+        <div class="tool-group"><h4>Status</h4><ul><li>whats_changed_since</li><li>feature_progress</li><li>sprint_status</li></ul></div>
+        <div class="tool-group"><h4>Planning<span class="new">New</span></h4><ul><li>planning_guide</li><li>capture_plan</li><li>get_brief</li><li>report_task</li><li>plan_status</li><li class="prompt">/plan_feature</li></ul></div>
+        <p class="tools-note"><b>26 tools and a prompt, behind one URL.</b> Pull requests from GitHub or GitLab link themselves to stories by key and close them on merge, so an agent's work lands on the board with no tidying up. Next: search that understands meaning across every project, and agent moves that flash on the board like a teammate's drag.</p>
       </div>
     </div>
   </section>
@@ -684,6 +829,7 @@
         <ol class="road">
           <li class="done"><span class="node"><svg><use href="#i-check"/></svg></span><div><b>Design<span class="badge">Done</span></b><span>Every v1 screen, light and dark</span></div></li>
           <li class="now"><span class="node"></span><div><b>Version 1<span class="badge">Building</span></b><span>Backlogs, boards, sprints, the taskboard, work items, settings and Jira import</span></div></li>
+          <li class="now"><span class="node"></span><div><b>Agents over MCP<span class="badge">Building</span></b><span>26 tools, browser consent, PR webhooks and a planning guide for agents working in parallel</span></div></li>
           <li><span class="node"></span><div><b>Open source release</b><span>Free to download and host yourself</span></div></li>
           <li><span class="node"></span><div><b>Later</b><span>Roadmaps and delivery plans across teams</span></div></li>
         </ol>
