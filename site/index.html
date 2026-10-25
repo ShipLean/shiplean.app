@@ -772,11 +772,11 @@
       <div class="spot flip" id="board">
         <div class="copy">
           <div class="eyebrow">Boards</div>
-          <h2>Columns aren't states.</h2>
-          <p>Each column maps to a state for each type, so <em>Ready</em> can mean New for a story and Triaged for a bug. Set WIP limits, split a column into Doing and Done, write its definition of done, and add an Expedite lane for Priority 1. Drag an unassigned card into an In Progress column and it's yours.</p>
+          <h2>Boards that fit how you work.</h2>
+          <p>Shape each board around your team's flow. Add the columns you need, set limits so work doesn't pile up, and give urgent work its own lane. Cards move for everyone as they happen, and taking a card is one drag.</p>
           <div class="stat-row">
-            <div class="stat"><b>WIP</b><span>limits that warn, never block</span></div>
-            <div class="stat"><b>Lanes</b><span>from simple criteria</span></div>
+            <div class="stat"><b>Your flow</b><span>not a fixed template</span></div>
+            <div class="stat"><b>Limits</b><span>that warn, never block</span></div>
           </div>
         </div>
         <div class="frame crop board">
@@ -788,12 +788,11 @@
       <div class="spot" id="jira">
         <div class="copy">
           <div class="eyebrow">Jira import</div>
-          <h2>Import your Jira project.</h2>
-          <p>Connect, pick a project and review how its issue types, statuses and people map across before ShipLean writes anything. Comments, attachments, sprints and the change history come too. ShipLean never writes to Jira.</p>
+          <h2>Bring your Jira project with you.</h2>
+          <p>Move a Jira project into ShipLean with its history, comments and sprints. You see how everything will come across before anything is imported, and your Jira stays exactly as it was.</p>
           <div class="stat-row">
-            <div class="stat"><b>5 steps</b><span>from connect to run</span></div>
-            <div class="stat"><b>History</b><span>kept as revisions</span></div>
-            <div class="stat"><b>Re-run</b><span>when you're ready</span></div>
+            <div class="stat"><b>Full history</b><span>comes with it</span></div>
+            <div class="stat"><b>Jira</b><span>left untouched</span></div>
           </div>
         </div>
         <div class="frame crop jira">
@@ -806,9 +805,9 @@
         <div class="copy">
           <div class="eyebrow">Sign-in <span class="soon">Planned</span></div>
           <h2>Bring your own sign&#8209;in.</h2>
-          <p>Put ShipLean behind the identity proxy you already run, such as oauth2-proxy, Cloudflare Access, Pomerium, Authelia or Authentik. ShipLean trusts the proxy's signed token and creates each account the first time that person arrives. Nobody signs in twice, and nobody hands out passwords. Password sign-in stays the default.</p>
+          <p>Use the sign-in your company already has. Put ShipLean behind your identity proxy, such as Cloudflare Access, Authelia or Authentik, and people arrive signed in with their existing account. Nobody needs another password, and new people get an account on their first visit.</p>
           <div class="stat-row">
-            <div class="stat"><b>Any IdP</b><span>through your proxy</span></div>
+            <div class="stat"><b>Any provider</b><span>Google, Microsoft, Okta and more</span></div>
             <div class="stat"><b>0</b><span>passwords to manage</span></div>
           </div>
         </div>
@@ -816,17 +815,17 @@
           <div class="idstep"><span class="ic"><svg><use href="#i-people"/></svg></span><span><b>Your team</b><span class="muted">signs in once, at your identity provider</span></span></div>
           <div class="idarrow" aria-hidden="true"></div>
           <div class="idstep"><span class="ic"><svg><use href="#i-shield"/></svg></span><span><b>Your identity proxy</b><span class="muted">oauth2-proxy · Cloudflare Access · Pomerium · Authelia · Authentik</span></span></div>
-          <div class="idarrow" aria-hidden="true"><span>signed token</span></div>
-          <div class="idstep on"><span class="ic"><svg class="mark mark-sm" viewBox="0 0 26 26"><use href="#i-mark"/></svg></span><span><b>ShipLean</b><span class="muted">verifies the token and creates the account on first visit</span></span></div>
-          <p class="idnote">Agents keep their own browser-approved access over MCP. An admin can still disable anyone.</p>
+          <div class="idarrow" aria-hidden="true"><span>who they are</span></div>
+          <div class="idstep on"><span class="ic"><svg class="mark mark-sm" viewBox="0 0 26 26"><use href="#i-mark"/></svg></span><span><b>ShipLean</b><span class="muted">signs them straight in</span></span></div>
+          <p class="idnote">Agents still connect with your approval, and admins can still turn anyone off.</p>
         </div>
       </div>
 
       <div class="minis">
-        <div class="mini"><svg><use href="#i-server"/></svg><h4>Self-hosted</h4><p>One install on your own server holds every team's project, with a project picker to move between them.</p></div>
-        <div class="mini"><svg><use href="#i-bolt"/></svg><h4>Who is on this screen</h4><p>The avatar of everyone on the same screen, and their card moves animate in place as they happen.</p></div>
-        <div class="mini"><svg><use href="#i-states"/></svg><h4>Your own states</h4><p>Name the states each project needs; colours follow the category, so totals still add up.</p></div>
-        <div class="mini"><svg><use href="#i-sprint"/></svg><h4>Every change kept</h4><p>Each save is a revision, so burndown, velocity and history are computed from the revisions, not from today's values.</p></div>
+        <div class="mini"><svg><use href="#i-server"/></svg><h4>Self-hosted</h4><p>Run it on your own server, with every team's projects in one place.</p></div>
+        <div class="mini"><svg><use href="#i-bolt"/></svg><h4>See who's here</h4><p>See who else is looking at the same screen, and watch their changes arrive.</p></div>
+        <div class="mini"><svg><use href="#i-states"/></svg><h4>Your own workflow</h4><p>Name the states each project needs, and reports still add up.</p></div>
+        <div class="mini"><svg><use href="#i-sprint"/></svg><h4>Every change kept</h4><p>Every item keeps its full history, so reports show what really happened.</p></div>
       </div>
     </div>
   </section>
