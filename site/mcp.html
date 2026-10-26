@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ShipLean · Project management for coding agents, over MCP</title>
+<meta name="description" content="ShipLean is project management for Claude Code, Codex, Cursor and other coding agents. One team-shared server where people and agents work on one live board, over MCP.">
+<meta name="theme-color" content="#e8eef7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#171e2d" media="(prefers-color-scheme: dark)">
+<link rel="canonical" href="https://shiplean.app/mcp">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://shiplean.app/mcp">
+<meta property="og:title" content="ShipLean · Project management for coding agents, over MCP">
+<meta property="og:description" content="ShipLean is project management for Claude Code, Codex, Cursor and other coding agents. One team-shared server where people and agents work on one live board, over MCP.">
+<meta property="og:image" content="https://shiplean.app/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="/tokens.css">
+<link rel="stylesheet" href="/site.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ShipLean","item":"https://shiplean.app/"},{"@type":"ListItem","position":2,"name":"For agents","item":"https://shiplean.app/mcp"}]}</script>
+</head>
+<body>
+<!-- SVG icon sprite -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="mark-g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" style="stop-color:var(--grad-a)"/><stop offset="1" style="stop-color:var(--grad-b)"/></linearGradient>
+    <symbol id="i-mark" viewBox="0 0 26 26"><rect width="26" height="26" rx="7" fill="url(#mark-g)"/><g style="fill:var(--mark-fg)"><rect x="13.5" y="5.5" width="4.5" height="2.4" rx="1.2"/><rect x="11" y="9.3" width="7" height="2.4" rx="1.2"/><rect x="8.5" y="13.1" width="9.5" height="2.4" rx="1.2"/><path d="M5 17.6h16.5a1 1 0 0 1 .8 1.6l-1.6 2.1a2 2 0 0 1-1.6.8H7.4a2 2 0 0 1-1.6-.8l-1.6-2.1A1 1 0 0 1 5 17.6Z"/></g></symbol>
+    <symbol id="i-gh" viewBox="0 0 24 24"><path fill="currentColor" d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.53-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.19-3.08-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.8 1.19 1.82 1.19 3.08 0 4.41-2.69 5.38-5.25 5.67.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 5v14m-6-6 6 6 6-6"/></symbol>
+    <symbol id="i-right" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m-6-6 6 6-6 6"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="m5 12.5 4.5 4.5L19 7.5"/></symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></g></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M2 12h2m16 0h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></g></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z"/></symbol>
+    <symbol id="i-board" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="3" y="4" width="5" height="16" rx="1.5"/><rect x="10" y="4" width="5" height="10" rx="1.5"/><rect x="17" y="4" width="4" height="13" rx="1.5"/></g></symbol>
+    <symbol id="i-list" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 6h11M9 12h11M9 18h7"/><circle cx="4.5" cy="6" r="1" fill="currentColor"/><circle cx="4.5" cy="12" r="1" fill="currentColor"/><circle cx="4.5" cy="18" r="1" fill="currentColor"/></g></symbol>
+    <symbol id="i-sprint" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12a8 8 0 1 1-2.3-5.6"/><path d="M20 4v4h-4"/></g></symbol>
+    <symbol id="i-people" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><path d="M16 4.6a3.5 3.5 0 0 1 0 6.8M18.5 14.2A6.5 6.5 0 0 1 21.5 20"/></g></symbol>
+    <symbol id="i-chart" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 3v18h18"/><path d="M7 16v-5M11 16V8M15 16v-7M19 16v-3"/></g></symbol>
+    <symbol id="i-flag" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"><path d="M5 21V4"/><path d="M5 4h11l-2 4 2 4H5"/></g></symbol>
+    <symbol id="i-gear" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 2v3m0 14v3M4.2 4.2l2.1 2.1m11.4 11.4 2.1 2.1M2 12h3m14 0h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></g></symbol>
+    <symbol id="i-server" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="7" rx="2"/><rect x="3" y="13" width="18" height="7" rx="2"/><path stroke-linecap="round" d="M7 7.5h.01M7 16.5h.01"/></g></symbol>
+    <symbol id="i-import" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m-5-5 5 5 5-5"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></g></symbol>
+    <symbol id="i-bolt" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z"/></symbol>
+    <symbol id="i-states" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2"><circle cx="5" cy="12" r="2.5"/><circle cx="12" cy="12" r="2.5"/><circle cx="19" cy="12" r="2.5"/><path d="M7.5 12h2M14.5 12h2"/></g></symbol>
+    <symbol id="i-agent" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="12" rx="3"/><path d="M12 8V4m-3 0h6"/><circle cx="9" cy="14" r="1" fill="currentColor"/><circle cx="15" cy="14" r="1" fill="currentColor"/><path d="M9.5 17.5h5"/></g></symbol>
+    <symbol id="i-plug" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3v5m6-5v5"/><path d="M6 8h12v3a6 6 0 0 1-12 0V8Z"/><path d="M12 17v4"/></g></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4.5 6v5.5c0 4.6 3.2 8 7.5 9.5 4.3-1.5 7.5-4.9 7.5-9.5V6L12 3Z"/><path d="m9 12 2 2 4-4"/></g></symbol>
+    <symbol id="i-layers" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 9 5-9 5-9-5 9-5Z"/><path d="m3 13 9 5 9-5"/></g></symbol>
+    <symbol id="i-book" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2V5Z"/><path d="M4 19a2 2 0 0 1 2-2h13"/><path d="M9 7h6"/></g></symbol>
+    <symbol id="i-merge" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="5" r="2"/><circle cx="6" cy="19" r="2"/><circle cx="18" cy="12" r="2"/><path d="M6 7v10"/><path d="M6 7c0 5 10 5 10 5"/></g></symbol>
+  </defs>
+</svg>
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="/"><svg class="mark" viewBox="0 0 26 26" aria-hidden="true"><use href="#i-mark"/></svg>ShipLean</a>
+    <nav class="nav-links">
+      <a href="/jira-alternative">Jira alternative</a>
+      <a href="/mcp">For agents</a>
+      <a href="/self-hosted">Self-hosted</a>
+      <a href="/vs/plane">Compare</a>
+    </nav>
+    <div class="nav-spacer"></div>
+    <button class="icon-btn" id="themeBtn" type="button" aria-label="Switch light or dark theme">
+      <svg class="only-light"><use href="#i-moon"/></svg><svg class="only-dark"><use href="#i-sun"/></svg>
+    </button>
+    <a class="btn btn-ghost btn-sm" href="https://github.com/shiplean"><svg><use href="#i-gh"/></svg><span>GitHub</span></a>
+  </div>
+</header>
+<main>
+  <div class="hero page">
+    <div class="wrap">
+      <span class="pill"><span class="tag">Coming soon</span><span class="dot" aria-hidden="true"></span>MCP server built in</span>
+      <h1>Project management for <span class="grad">coding agents.</span></h1>
+      <p class="lede">Connect Claude Code, Codex, Cursor or Claude Desktop with one command. Agents plan and work on the same backlog as your team, and a person sees the same board.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="https://github.com/shiplean"><svg><use href="#i-gh"/></svg>Follow on GitHub</a>
+        
+      </div>
+    </div>
+  </div>
+  <section class="tight">
+    <div class="wrap">
+      <div class="sec-head center"><div class="eyebrow">Connect</div><h2>One command, approved in the browser.</h2><p>ShipLean has an MCP server. Add it to your agent, approve the agent on a consent screen, and it can read and update the same backlog, boards and sprints as the team. Its name is on every revision and comment it writes.</p></div>
+      <div class="agent-grid">
+        <div class="term">
+          <div class="frame-bar"><i></i><i></i><i></i><span class="url"><svg><use href="#i-agent"/></svg>Claude Code · connected to ShipLean</span><span class="bal"></span></div>
+<pre><span class="u">Break SHIP-240 down so three agents can build it in parallel.</span>
+<span class="t"><code>planning_guide</code><span>guide + 7 templates + 2 lessons from the last retro</span></span>
+<span class="t w"><code>capture_plan</code><span>preview · 1 feature, 6 stories, 23 tasks · 1 warning, 0 errors</span></span>
+<span class="t w"><code>capture_plan</code><span>applied the previewed plan · tags wave:1 lane:F model ctx:55k</span></span>
+<span class="a">Planned. Wave 0.1 can start now. Wave 1 has three lanes, so three leads run at the same time. Wave 2 starts when all three are done.</span>
+<span class="u">Start lane F.</span>
+<span class="t w"><code>pick_up</code><span>SHIP-247 moved to In progress · Claude Code, for Alex</span></span>
+<span class="t"><code>get_brief</code><span>SHIP-248: common brief + task brief + branch feat/240 + report template</span></span>
+<span class="t w"><code>report_task</code><span>SHIP-248 <span class="ok">done</span> · 3 commits · PR #312 linked · 1 left undone, now SHIP-271</span></span>
+<span class="t"><code>plan_status</code><span>wave 1 · F 2/5 done · A 1/7 · L 0/7 · wave 2 not startable yet</span></span></pre>
+        </div>
+        <div>
+          <div class="frame crop consent">
+            <img class="only-light" src="/shots/authorize-light.webp" alt="ShipLean's consent page: Claude Code wants to connect as you, with read, write and plan scopes to allow or deny" loading="lazy" width="1440" height="900">
+            <img class="only-dark" src="/shots/authorize-dark.webp" alt="ShipLean's consent page, dark" loading="lazy" width="1440" height="900">
+          </div>
+          <div class="connect"><span class="p">$</span><span>claude mcp add --transport http shiplean</span><span class="n">https://your.shiplean/mcp</span></div>
+          <div class="clients">
+            <span><svg><use href="#i-check"/></svg>Claude Code</span>
+            <span><svg><use href="#i-check"/></svg>Claude Desktop</span>
+            <span><svg><use href="#i-check"/></svg>Cursor</span>
+            <span><svg><use href="#i-check"/></svg>Any MCP client</span>
+          </div>
+          <p class="agent-note">You approve the agent in the browser, so it never sees your password. It starts with read and write. The first time a tool needs <code>plan</code>, ShipLean sends it back to the consent page. Revoke it from your profile; a password change disconnects every agent at once.</p>
+        </div>
+      </div>
+
+      <div class="pillars four">
+        <div class="card">
+          <div class="ic"><svg><use href="#i-plug"/></svg></div>
+          <h3>Connect in one line</h3>
+          <p>Add ShipLean to your agent and approve it in the browser. Any MCP client that supports OAuth can connect, and you can revoke access at any time.</p>
+        </div>
+        <div class="card">
+          <div class="ic"><svg><use href="#i-book"/></svg></div>
+          <h3>Context and skills, built in</h3>
+          <p>ShipLean gives agents the method as well as the tools: how to break work down, what good looks like, and what your team learned in its last retros.</p>
+        </div>
+        <div class="card">
+          <div class="ic"><svg><use href="#i-layers"/></svg></div>
+          <h3>Parallel by design</h3>
+          <p>Break a feature into pieces that several agents can build at the same time. Each agent gets its own brief, reports back when it is done, and everyone sees progress on the board.</p>
+        </div>
+        <div class="card">
+          <div class="ic"><svg><use href="#i-shield"/></svg></div>
+          <h3>You stay in control</h3>
+          <p>Agents show you big changes before they make them, and only get the access you approve. Every change records which agent made it and who it was working for.</p>
+        </div>
+      </div>
+      <div class="tools">
+        <div class="tool-group"><h4>Orient</h4><ul><li>list_projects</li><li>search</li><li>get_work_item</li></ul></div>
+        <div class="tool-group"><h4>Capture</h4><ul><li>capture_work</li><li>break_down</li><li>refine_work_item</li><li>comment</li><li>link</li></ul></div>
+        <div class="tool-group"><h4>Work</h4><ul><li>find_work_to_pick_up</li><li>pick_up</li><li>update_progress</li><li>hand_back</li></ul></div>
+        <div class="tool-group"><h4>Sprint</h4><ul><li>create_sprint</li><li>plan_sprint</li><li>end_sprint</li></ul></div>
+        <div class="tool-group"><h4>Backlog</h4><ul><li>review_backlog</li><li>sprint_review</li><li>move_to_sprint</li><li>reorder</li></ul></div>
+        <div class="tool-group"><h4>Status</h4><ul><li>whats_changed_since</li><li>feature_progress</li><li>sprint_status</li></ul></div>
+        <div class="tool-group"><h4>Planning<span class="new">New</span></h4><ul><li>planning_guide</li><li>capture_plan</li><li>get_brief</li><li>report_task</li><li>plan_status</li><li class="prompt">/plan_feature</li></ul></div>
+        <p class="tools-note"><b>26 tools and one prompt behind one URL.</b> ShipLean links a GitHub or GitLab pull request to each story named in its title or branch, and closes the story when the pull request merges. Next: search that matches meaning as well as words across every project, and a flash on the board when an agent moves a card, the same as for a teammate's drag.</p>
+      </div>
+    </div>
+  </section>
+  <section class="tight">
+    <div class="wrap">
+      <div class="prose" style="text-align:center">
+        <div class="eyebrow">What no repo-based task tool offers</div>
+        <h2>A team-shared server where people and agents work on one live board.</h2>
+        <p>Task files in a repository are fine for one person and one agent. ShipLean is a server the whole team shares. Several agents work in parallel, each picking up its own item, and a person looking at the board sees the same live picture they do.</p>
+      </div>
+    </div>
+  </section>
+  <section class="tight">
+    <div class="wrap">
+      <div class="sec-head center"><div class="eyebrow">In practice</div><h2>How it fits a workflow.</h2></div>
+      <ol class="steps" style="max-width:760px;margin-left:auto;margin-right:auto">
+        <li><div><b>Plan a feature with the agent.</b><span>Describe the feature and let the agent break it down into stories and tasks. It shows you the plan before it writes anything.</span></div></li>
+        <li><div><b>Items land on the backlog.</b><span>The stories and tasks appear on the same backlog and board as the rest of the team&#8217;s work, ranked and forecast like any other.</span></div></li>
+        <li><div><b>Agents take them.</b><span>Each agent picks up its own item, works from its brief, and reports back when it is done. A linked pull request closes the story when it merges.</span></div></li>
+        <li><div><b>People review.</b><span>Everyone sees progress on the board. Every change records which agent made it and who it was working for.</span></div></li>
+      </ol>
+    </div>
+  </section>
+  <section class="tight">
+    <div class="wrap">
+      <div class="closing" style="padding-top:0">
+        <h2>Give your agents<br><span class="grad">a backlog to work from.</span></h2>
+        <div class="cta-row"><a class="btn btn-primary" href="https://github.com/shiplean"><svg><use href="#i-gh"/></svg>Follow on GitHub</a></div>
+        <p class="muted" style="margin-top:16px">ShipLean is coming soon. Follow the project on GitHub to hear when it is ready to install.</p>
+      </div>
+      <div class="more"><a href="/jira-alternative"><b>Jira alternative</b><span>Backlogs, boards, sprints and a Jira import</span></a><a href="/self-hosted"><b>Self-hosted</b><span>One container and Postgres</span></a><a href="/jira-data-center"><b>Moving off Jira Data Center</b><span>The dates, and what comes across</span></a></div>
+    </div>
+  </section>
+</main>
+<footer>
+  <div class="wrap">
+    <a class="brand" href="/" style="font-size:15px"><svg class="mark mark-sm" viewBox="0 0 26 26" aria-hidden="true"><use href="#i-mark"/></svg>ShipLean</a>
+    <span>shiplean.app</span>
+    <div class="foot-links">
+      <a href="/jira-alternative">Jira alternative</a>
+      <a href="/jira-data-center">Jira Data Center</a>
+      <a href="/mcp">For agents</a>
+      <a href="/self-hosted">Self-hosted</a>
+      <a href="/vs/taiga">vs Taiga</a>
+      <a href="/vs/openproject">vs OpenProject</a>
+      <a href="/vs/plane">vs Plane</a>
+      <a href="/vs/linear">vs Linear</a>
+    </div>
+    <div class="nav-spacer"></div>
+    <a href="https://github.com/shiplean">GitHub</a>
+    <span>© 2026 ShipLean contributors</span>
+  </div>
+</footer>
+<script>
+  (() => {
+    const root = document.documentElement;
+    try { const t = localStorage.getItem('shiplean-theme'); if (t) root.dataset.theme = t; } catch {}
+    document.getElementById('themeBtn').addEventListener('click', () => {
+      const dark = root.dataset.theme ? root.dataset.theme === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
+      root.dataset.theme = dark ? 'light' : 'dark';
+      try { localStorage.setItem('shiplean-theme', root.dataset.theme); } catch {}
+    });
+  })();
+</script>
+</body>
+</html>

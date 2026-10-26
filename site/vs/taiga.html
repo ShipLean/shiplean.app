@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ShipLean vs Taiga · an open-source, self-hosted comparison</title>
+<meta name="description" content="How ShipLean compares with Taiga: what Taiga is good at, where ShipLean differs, and when to pick which.">
+<meta name="theme-color" content="#e8eef7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#171e2d" media="(prefers-color-scheme: dark)">
+<link rel="canonical" href="https://shiplean.app/vs/taiga">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://shiplean.app/vs/taiga">
+<meta property="og:title" content="ShipLean vs Taiga · an open-source, self-hosted comparison">
+<meta property="og:description" content="How ShipLean compares with Taiga: what Taiga is good at, where ShipLean differs, and when to pick which.">
+<meta property="og:image" content="https://shiplean.app/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="/tokens.css">
+<link rel="stylesheet" href="/site.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"ShipLean","item":"https://shiplean.app/"},{"@type":"ListItem","position":2,"name":"vs Taiga","item":"https://shiplean.app/vs/taiga"}]}</script>
+</head>
+<body>
+<!-- SVG icon sprite -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="mark-g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" style="stop-color:var(--grad-a)"/><stop offset="1" style="stop-color:var(--grad-b)"/></linearGradient>
+    <symbol id="i-mark" viewBox="0 0 26 26"><rect width="26" height="26" rx="7" fill="url(#mark-g)"/><g style="fill:var(--mark-fg)"><rect x="13.5" y="5.5" width="4.5" height="2.4" rx="1.2"/><rect x="11" y="9.3" width="7" height="2.4" rx="1.2"/><rect x="8.5" y="13.1" width="9.5" height="2.4" rx="1.2"/><path d="M5 17.6h16.5a1 1 0 0 1 .8 1.6l-1.6 2.1a2 2 0 0 1-1.6.8H7.4a2 2 0 0 1-1.6-.8l-1.6-2.1A1 1 0 0 1 5 17.6Z"/></g></symbol>
+    <symbol id="i-gh" viewBox="0 0 24 24"><path fill="currentColor" d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.53-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.19-3.08-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.8 1.19 1.82 1.19 3.08 0 4.41-2.69 5.38-5.25 5.67.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 5v14m-6-6 6 6 6-6"/></symbol>
+    <symbol id="i-right" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m-6-6 6 6-6 6"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" d="m5 12.5 4.5 4.5L19 7.5"/></symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="11" width="14" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></g></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M2 12h2m16 0h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></g></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z"/></symbol>
+    <symbol id="i-board" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><rect x="3" y="4" width="5" height="16" rx="1.5"/><rect x="10" y="4" width="5" height="10" rx="1.5"/><rect x="17" y="4" width="4" height="13" rx="1.5"/></g></symbol>
+    <symbol id="i-list" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 6h11M9 12h11M9 18h7"/><circle cx="4.5" cy="6" r="1" fill="currentColor"/><circle cx="4.5" cy="12" r="1" fill="currentColor"/><circle cx="4.5" cy="18" r="1" fill="currentColor"/></g></symbol>
+    <symbol id="i-sprint" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12a8 8 0 1 1-2.3-5.6"/><path d="M20 4v4h-4"/></g></symbol>
+    <symbol id="i-people" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><path d="M16 4.6a3.5 3.5 0 0 1 0 6.8M18.5 14.2A6.5 6.5 0 0 1 21.5 20"/></g></symbol>
+    <symbol id="i-chart" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 3v18h18"/><path d="M7 16v-5M11 16V8M15 16v-7M19 16v-3"/></g></symbol>
+    <symbol id="i-flag" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"><path d="M5 21V4"/><path d="M5 4h11l-2 4 2 4H5"/></g></symbol>
+    <symbol id="i-gear" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 2v3m0 14v3M4.2 4.2l2.1 2.1m11.4 11.4 2.1 2.1M2 12h3m14 0h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></g></symbol>
+    <symbol id="i-server" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="7" rx="2"/><rect x="3" y="13" width="18" height="7" rx="2"/><path stroke-linecap="round" d="M7 7.5h.01M7 16.5h.01"/></g></symbol>
+    <symbol id="i-import" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m-5-5 5 5 5-5"/><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"/></g></symbol>
+    <symbol id="i-bolt" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z"/></symbol>
+    <symbol id="i-states" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2"><circle cx="5" cy="12" r="2.5"/><circle cx="12" cy="12" r="2.5"/><circle cx="19" cy="12" r="2.5"/><path d="M7.5 12h2M14.5 12h2"/></g></symbol>
+    <symbol id="i-agent" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="12" rx="3"/><path d="M12 8V4m-3 0h6"/><circle cx="9" cy="14" r="1" fill="currentColor"/><circle cx="15" cy="14" r="1" fill="currentColor"/><path d="M9.5 17.5h5"/></g></symbol>
+    <symbol id="i-plug" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3v5m6-5v5"/><path d="M6 8h12v3a6 6 0 0 1-12 0V8Z"/><path d="M12 17v4"/></g></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4.5 6v5.5c0 4.6 3.2 8 7.5 9.5 4.3-1.5 7.5-4.9 7.5-9.5V6L12 3Z"/><path d="m9 12 2 2 4-4"/></g></symbol>
+    <symbol id="i-layers" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 9 5-9 5-9-5 9-5Z"/><path d="m3 13 9 5 9-5"/></g></symbol>
+    <symbol id="i-book" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2V5Z"/><path d="M4 19a2 2 0 0 1 2-2h13"/><path d="M9 7h6"/></g></symbol>
+    <symbol id="i-merge" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="5" r="2"/><circle cx="6" cy="19" r="2"/><circle cx="18" cy="12" r="2"/><path d="M6 7v10"/><path d="M6 7c0 5 10 5 10 5"/></g></symbol>
+  </defs>
+</svg>
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="/"><svg class="mark" viewBox="0 0 26 26" aria-hidden="true"><use href="#i-mark"/></svg>ShipLean</a>
+    <nav class="nav-links">
+      <a href="/jira-alternative">Jira alternative</a>
+      <a href="/mcp">For agents</a>
+      <a href="/self-hosted">Self-hosted</a>
+      <a href="/vs/plane">Compare</a>
+    </nav>
+    <div class="nav-spacer"></div>
+    <button class="icon-btn" id="themeBtn" type="button" aria-label="Switch light or dark theme">
+      <svg class="only-light"><use href="#i-moon"/></svg><svg class="only-dark"><use href="#i-sun"/></svg>
+    </button>
+    <a class="btn btn-ghost btn-sm" href="https://github.com/shiplean"><svg><use href="#i-gh"/></svg><span>GitHub</span></a>
+  </div>
+</header>
+<main>
+  <div class="hero page">
+    <div class="wrap">
+      <span class="pill"><span class="tag">Coming soon</span><span class="dot" aria-hidden="true"></span>ShipLean and Taiga, side by side</span>
+      <h1>ShipLean vs <span class="grad">Taiga.</span></h1>
+      <p class="lede">Taiga is an open-source agile project management tool with Scrum and Kanban, user stories, epics and a wiki. You can use it hosted by Taiga or run it yourself. Here is a fair look at where they differ.</p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="https://github.com/shiplean"><svg><use href="#i-gh"/></svg>Follow on GitHub</a>
+        
+      </div>
+    </div>
+  </div>
+  <section class="tight">
+    <div class="wrap">
+      <div class="sec-head center"><div class="eyebrow">At a glance</div><h2>Taiga and ShipLean.</h2></div>
+      <table class="compare">
+        <thead><tr><th></th><th>Taiga</th><th>ShipLean</th></tr></thead>
+        <tbody><tr><th scope="row">Open source</th><td>Yes</td><td>Yes, once released</td></tr><tr><th scope="row">Self-hosted</th><td>Yes</td><td>Yes, one container and Postgres</td></tr><tr><th scope="row">Scrum and Kanban</th><td>Yes</td><td>Yes</td></tr><tr><th scope="row">Agents over MCP</th><td>Check Taiga&#8217;s current docs</td><td>Built in</td></tr><tr><th scope="row">Jira import</th><td>Check Taiga&#8217;s current docs</td><td>Project, history, comments and sprints</td></tr><tr><th scope="row">Available today</th><td>Yes</td><td>Coming soon</td></tr></tbody>
+      </table>
+      <p class="muted" style="font-size:14px;margin-top:14px">Written from what we know today. Tools change, so check Taiga&#8217;s own documentation for the latest.</p>
+    </div>
+  </section>
+  <section class="tight">
+    <div class="wrap">
+      <div class="pick" style="margin-top:0">
+        <div class="card"><h3>What Taiga is good at</h3><ul><li>Open source, with a long track record among agile teams.</li><li>Scrum and Kanban in one tool, plus epics, issues and a wiki.</li><li>Hosted option if you do not want to run a server.</li></ul></div>
+        <div class="card"><h3>Where ShipLean differs</h3><ul><li>ShipLean forecasts which sprint each backlog item will land in, from real velocity.</li><li>ShipLean has an MCP server, so agents plan and work on the same backlog as the team.</li><li>ShipLean imports a Jira project with its history, comments and sprints.</li></ul></div>
+      </div>
+    </div>
+  </section>
+  <section class="tight">
+    <div class="wrap">
+      <div class="sec-head center"><div class="eyebrow">Which to pick</div><h2>It depends on what you need.</h2></div>
+      <div class="pick">
+        <div class="card"><h3>Pick Taiga if</h3><ul><li>You want a mature, established open-source agile tool today.</li><li>You like its wiki and epics layout.</li></ul></div>
+        <div class="card"><h3>Pick ShipLean if</h3><ul><li>You want agents to work the backlog alongside your people.</li><li>You are moving off Jira and want your history to come across.</li></ul></div>
+      </div>
+    </div>
+  </section>
+  <section class="tight">
+    <div class="wrap">
+      <div class="closing" style="padding-top:0">
+        <h2>Plan the sprint.<br><span class="grad">Then go ship it.</span></h2>
+        <div class="cta-row"><a class="btn btn-primary" href="https://github.com/shiplean"><svg><use href="#i-gh"/></svg>Follow on GitHub</a></div>
+        <p class="muted" style="margin-top:16px">ShipLean is coming soon. Follow the project on GitHub to hear when it is ready to install.</p>
+      </div>
+      <div class="more"><a href="/jira-alternative"><b>Jira alternative</b><span>Backlogs, boards, sprints and a Jira import</span></a><a href="/mcp"><b>ShipLean for agents</b><span>Claude Code, Cursor and any MCP client</span></a><a href="/vs/openproject"><b>ShipLean vs OpenProject</b><span>A fair comparison</span></a></div>
+    </div>
+  </section>
+</main>
+<footer>
+  <div class="wrap">
+    <a class="brand" href="/" style="font-size:15px"><svg class="mark mark-sm" viewBox="0 0 26 26" aria-hidden="true"><use href="#i-mark"/></svg>ShipLean</a>
+    <span>shiplean.app</span>
+    <div class="foot-links">
+      <a href="/jira-alternative">Jira alternative</a>
+      <a href="/jira-data-center">Jira Data Center</a>
+      <a href="/mcp">For agents</a>
+      <a href="/self-hosted">Self-hosted</a>
+      <a href="/vs/taiga">vs Taiga</a>
+      <a href="/vs/openproject">vs OpenProject</a>
+      <a href="/vs/plane">vs Plane</a>
+      <a href="/vs/linear">vs Linear</a>
+    </div>
+    <div class="nav-spacer"></div>
+    <a href="https://github.com/shiplean">GitHub</a>
+    <span>© 2026 ShipLean contributors</span>
+  </div>
+</footer>
+<script>
+  (() => {
+    const root = document.documentElement;
+    try { const t = localStorage.getItem('shiplean-theme'); if (t) root.dataset.theme = t; } catch {}
+    document.getElementById('themeBtn').addEventListener('click', () => {
+      const dark = root.dataset.theme ? root.dataset.theme === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
+      root.dataset.theme = dark ? 'light' : 'dark';
+      try { localStorage.setItem('shiplean-theme', root.dataset.theme); } catch {}
+    });
+  })();
+</script>
+</body>
+</html>
