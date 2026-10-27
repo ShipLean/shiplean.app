@@ -63,8 +63,8 @@
   .mark { --mark-fg: #fff; }
   :root[data-theme="dark"] .mark { --mark-fg: #06192a; }
   @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .mark { --mark-fg: #06192a; } }
-  .nav-links { display: flex; gap: 22px; font-size: 14px; color: var(--color-muted); }
-  .nav-links a { text-decoration: none; }
+  .nav-links { display: flex; flex-wrap: wrap; gap: 4px 22px; font-size: 14px; color: var(--color-muted); }
+  .nav-links a { text-decoration: none; white-space: nowrap; }
   .nav-links a:hover { color: var(--color-text); }
   .nav-spacer { flex: 1; }
   .icon-btn {
