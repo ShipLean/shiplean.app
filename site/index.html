@@ -65,6 +65,7 @@
       <a href="#tour">Tour</a>
       <a href="#planning">Planning</a>
       <a href="#board">Boards</a>
+      <a href="#search">AI search</a>
       <a href="#jira">Jira import</a>
       <a href="#roadmap">Roadmap</a>
     </nav>
@@ -223,7 +224,7 @@
         <div class="tool-group"><h4>Backlog</h4><ul><li>review_backlog</li><li>sprint_review</li><li>move_to_sprint</li><li>reorder</li></ul></div>
         <div class="tool-group"><h4>Status</h4><ul><li>whats_changed_since</li><li>feature_progress</li><li>sprint_status</li></ul></div>
         <div class="tool-group"><h4>Planning<span class="new">New</span></h4><ul><li>planning_guide</li><li>capture_plan</li><li>get_brief</li><li>report_task</li><li>plan_status</li><li class="prompt">/plan_feature</li></ul></div>
-        <p class="tools-note"><b>26 tools and one prompt behind one URL.</b> ShipLean links a GitHub or GitLab pull request to each story named in its title or branch, and closes the story when the pull request merges. Next: search that matches meaning as well as words across every project, and a flash on the board when an agent moves a card, the same as for a teammate's drag.</p>
+        <p class="tools-note"><b>26 tools and one prompt behind one URL.</b> ShipLean links a GitHub or GitLab pull request to each story named in its title or branch, and closes the story when the pull request merges. The <code>search</code> tool is the same AI search people get with ⌘P. Next: a flash on the board when an agent moves a card, the same as for a teammate's drag.</p>
       </div>
     </div>
   </section>
@@ -398,7 +399,29 @@
         </div>
       </div>
 
-      <div class="spot" id="jira">
+      <div class="spot" id="search">
+        <div class="copy">
+          <div class="eyebrow">AI search</div>
+          <h2>AI search that knows what you mean.</h2>
+          <p>Press ⌘P, or Ctrl+P, on any screen and start typing. Semantic search built on embeddings matches meaning as well as exact words, across titles, descriptions, comments and attachments, closed work included. Work items, sprints and projects come back in groups. Your agents use the same AI search over MCP, so people and agents find the same things.</p>
+          <div class="chips">
+            <span class="chip" style="--c:var(--color-accent)">Semantic</span>
+            <span class="chip" style="--c:var(--type-feature)">Embeddings</span>
+            <span class="chip" style="--c:var(--color-accent)">Keyword</span>
+            <span class="chip" style="--c:var(--color-ok)">MCP</span>
+          </div>
+          <div class="stat-row">
+            <div class="stat"><b>⌘P</b><span>from any screen</span></div>
+            <div class="stat"><b>One search</b><span>for people and agents</span></div>
+          </div>
+        </div>
+        <div class="frame crop search">
+          <img class="only-light" src="shots/search-light.webp" alt="Quick search over the Stories backlog: results for “sign” grouped into work items, sprints and projects, with matches found in a comment and in an attachment name" loading="lazy" width="2000" height="1117">
+          <img class="only-dark" src="shots/search-dark.webp" alt="Quick search results, dark" loading="lazy" width="2000" height="1117">
+        </div>
+      </div>
+
+      <div class="spot flip" id="jira">
         <div class="copy">
           <div class="eyebrow">Jira import</div>
           <h2>Bring your Jira project with you.</h2>
@@ -414,7 +437,7 @@
         </div>
       </div>
 
-      <div class="spot flip" id="sign-in">
+      <div class="spot" id="sign-in">
         <div class="copy">
           <div class="eyebrow">Sign-in <span class="soon">Planned</span></div>
           <h2>Bring your own sign&#8209;in.</h2>

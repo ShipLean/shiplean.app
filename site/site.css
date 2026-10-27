@@ -384,6 +384,7 @@
   /* Crops for the spotlights */
   .crop.plan img { transform: scale(1.25); transform-origin: 30% 100%; }
   .crop.board img { transform: scale(1.35); transform-origin: 60% 0%; }
+  .crop.search img { transform: scale(1.1); transform-origin: 50% 40%; }
   .crop.jira img { object-position: left top; transform: scale(1.19); transform-origin: 100% 0%; }
   .crop.end img { transform: scale(1.75); transform-origin: 50% 50%; }
 
