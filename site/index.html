@@ -20,7 +20,7 @@
 <link rel="stylesheet" href="tokens.css">
 <link rel="stylesheet" href="site.css">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"ShipLean","description":"ShipLean is a free, open-source, self-hosted Jira alternative: backlogs, boards and sprints, a forecast that shows which sprint each backlog item lands in, and an MCP server so your agents plan and work on the same backlog as the team.","applicationCategory":"BusinessApplication","operatingSystem":"Linux (self-hosted)","url":"https://shiplean.app/","image":"https://shiplean.app/og-image.png","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is ShipLean free?","acceptedAnswer":{"@type":"Answer","text":"Yes. ShipLean is free and open source, and you host it yourself. The docs show how to install it."}},{"@type":"Question","name":"Does it run on my own server?","acceptedAnswer":{"@type":"Answer","text":"Yes. ShipLean is self-hosted, and every team's projects can live on one server you control. See the self-hosted page for what you need."}},{"@type":"Question","name":"Does it import from Jira?","acceptedAnswer":{"@type":"Answer","text":"Yes. You can move a Jira project into ShipLean with its history, comments and sprints. You review how everything will come across before anything is imported, and your Jira stays exactly as it was."}},{"@type":"Question","name":"Which agents can connect?","acceptedAnswer":{"@type":"Answer","text":"Claude Code, Claude Desktop, Cursor and any other MCP client that supports OAuth. You approve each agent in the browser and can revoke it at any time."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is ShipLean free?","acceptedAnswer":{"@type":"Answer","text":"Yes. ShipLean is free and open source, and you host it yourself. The docs show how to install it."}},{"@type":"Question","name":"Does it run on my own server?","acceptedAnswer":{"@type":"Answer","text":"Yes. ShipLean is self-hosted, and every team's projects can live on one server you control. See the self-hosted page for what you need."}},{"@type":"Question","name":"Does it import from Jira?","acceptedAnswer":{"@type":"Answer","text":"Yes. You can move a Jira project into ShipLean with its history, comments and sprints. You review how everything will come across before anything is imported, and your Jira stays exactly as it was."}},{"@type":"Question","name":"Which agents can connect?","acceptedAnswer":{"@type":"Answer","text":"Claude Code, Claude Desktop, Cursor and any other MCP client that supports OAuth. You approve each agent in the browser and can revoke it at any time."}},{"@type":"Question","name":"Do agents learn from past sprints?","acceptedAnswer":{"@type":"Answer","text":"Yes. When an agent finishes a story it logs a retrospective: what went well, what went badly and why, what to improve and what the plan missed. ShipLean groups the points into themes across sprints, you raise action items from them, and the lessons go into the planning guide the next agent reads."}}]}</script>
 </head>
 <body>
 
@@ -66,6 +66,7 @@
       <a href="#planning">Planning</a>
       <a href="#board">Boards</a>
       <a href="#search">AI search</a>
+      <a href="#retro">Retros</a>
       <a href="#jira">Jira import</a>
       <a href="#roadmap">Roadmap</a>
       <a href="https://docs.shiplean.app">Docs</a>
@@ -176,6 +177,7 @@
 <span class="t w"><code>pick_up</code><span>SHIP-247 moved to In progress · Claude Code, for Alex</span></span>
 <span class="t"><code>get_brief</code><span>SHIP-248: common brief + task brief + branch feat/240 + report template</span></span>
 <span class="t w"><code>report_task</code><span>SHIP-248 <span class="ok">done</span> · 3 commits · PR #312 linked · 1 left undone, now SHIP-271</span></span>
+<span class="t w"><code>log_retrospective</code><span>SHIP-248 · 1 went badly + root cause · 2 improve · 1 not in plan · failure log kept</span></span>
 <span class="t"><code>plan_status</code><span>wave 1 · F 2/5 done · A 1/7 · L 0/7 · wave 2 not startable yet</span></span></pre>
         </div>
         <div>
@@ -224,8 +226,9 @@
         <div class="tool-group"><h4>Sprint</h4><ul><li>create_sprint</li><li>plan_sprint</li><li>end_sprint</li></ul></div>
         <div class="tool-group"><h4>Backlog</h4><ul><li>review_backlog</li><li>sprint_review</li><li>move_to_sprint</li><li>reorder</li></ul></div>
         <div class="tool-group"><h4>Status</h4><ul><li>whats_changed_since</li><li>feature_progress</li><li>sprint_status</li></ul></div>
-        <div class="tool-group"><h4>Planning<span class="new">New</span></h4><ul><li>planning_guide</li><li>capture_plan</li><li>get_brief</li><li>report_task</li><li>plan_status</li><li class="prompt">/plan_feature</li></ul></div>
-        <p class="tools-note"><b>26 tools and one prompt behind one URL.</b> ShipLean links a GitHub or GitLab pull request to each story named in its title or branch, and closes the story when the pull request merges. The <code>search</code> tool is the same AI search people get with ⌘P. Next: a flash on the board when an agent moves a card, the same as for a teammate's drag.</p>
+        <div class="tool-group"><h4>Planning</h4><ul><li>planning_guide</li><li>capture_plan</li><li>get_brief</li><li>report_task</li><li>plan_status</li><li class="prompt">/plan_feature</li></ul></div>
+        <div class="tool-group"><h4>Retro<span class="new">New</span></h4><ul><li>log_retrospective</li><li>list_retrospectives</li></ul></div>
+        <p class="tools-note"><b>35 tools and one prompt behind one URL.</b> ShipLean links a GitHub or GitLab pull request to each story named in its title or branch, and closes the story when the pull request merges. The <code>search</code> tool is the same AI search people get with ⌘P. Next: a flash on the board when an agent moves a card, the same as for a teammate's drag.</p>
       </div>
     </div>
   </section>
@@ -365,13 +368,14 @@
         <div class="copy">
           <div class="eyebrow">Plan to ship</div>
           <h2>Agile planning, from estimate to ship.</h2>
-          <p>Everything a team does between an idea and a release, in one place. Rank and estimate the backlog, plan sprints around what the team usually delivers, track the work on a board and ship, using as much or as little of it as suits you. People and agents can work from the same plan, so it keeps up as the work moves.</p>
+          <p>Everything a team does between an idea and a release, and the retrospective after it, in one place. Rank and estimate the backlog, plan sprints around what the team usually delivers, track the work on a board, ship, then log what you learned so the next plan starts from it. Use as much or as little of the cycle as suits you. People and agents can work from the same plan, so it keeps up as the work moves.</p>
           <div class="chips">
             <span class="chip" style="--c:var(--color-accent)">Plan</span>
             <span class="chip" style="--c:var(--type-feature)">Estimate</span>
             <span class="chip" style="--c:var(--color-accent)">Execute</span>
             <span class="chip" style="--c:var(--type-feature)">Build</span>
             <span class="chip" style="--c:var(--color-ok)">Ship</span>
+            <span class="chip" style="--c:var(--color-warn)">Retro</span>
           </div>
           <div class="stat-row">
             <div class="stat"><b>One plan</b><span>for people and agents</span></div>
@@ -478,6 +482,28 @@
         </div>
       </div>
 
+      <div class="spot" id="retro">
+        <div class="copy">
+          <div class="eyebrow">Retrospectives</div>
+          <h2>Inspect and adapt, agents included.</h2>
+          <p>Scrum closes the loop with a retrospective, and ShipLean closes it for agents too. When an agent finishes a story it logs what went well, what went badly and why, what could be improved and what the plan never saw coming, with its raw failure log kept word for word. Agents are told up front that a dead end is useful data, so a retro reads like an engineer's log, not a victory lap. ShipLean groups the points into themes across sprints, flags the ones that keep coming back, and turns a point into an action item in one click. The next sprints show whether it helped, and the lessons go into the planning guide, so every plan starts from what the last one taught.</p>
+          <div class="chips">
+            <span class="chip" style="--c:var(--color-danger)">Went badly</span>
+            <span class="chip" style="--c:var(--color-accent)">Can be improved</span>
+            <span class="chip" style="--c:var(--type-feature)">Not in the plan</span>
+            <span class="chip" style="--c:var(--color-ok)">Went well</span>
+          </div>
+          <div class="stat-row">
+            <div class="stat"><b>Root causes</b><span>not apologies</span></div>
+            <div class="stat"><b>Impact</b><span>measured sprint by sprint</span></div>
+          </div>
+        </div>
+        <div class="frame crop retro">
+          <img class="only-light" src="shots/retro-light.webp" alt="A sprint's Retro tab: points from agents and people in four columns, Went badly, Can be improved, Not in the plan and Went well, grouped by theme, with recurring themes, coverage and action items in the rail" loading="lazy" width="2000" height="1250">
+          <img class="only-dark" src="shots/retro-dark.webp" alt="A sprint's Retro tab, dark" loading="lazy" width="2000" height="1250">
+        </div>
+      </div>
+
       <div class="minis">
         <div class="mini"><svg><use href="#i-server"/></svg><h4>Self-hosted</h4><p>Run it on your own server, with every team's projects in one place.</p></div>
         <div class="mini"><svg><use href="#i-bolt"/></svg><h4>See who's here</h4><p>See who else is looking at the same screen, and watch their changes arrive.</p></div>
@@ -491,7 +517,7 @@
   <section id="faq" style="padding-top:0">
     <div class="wrap">
       <div class="sec-head center"><div class="eyebrow">Questions</div><h2>Common questions.</h2></div>
-      <div class="faq"><details><summary>Is ShipLean free?</summary><p>Yes. ShipLean is free and open source, and you host it yourself. The docs show how to install it.</p></details><details><summary>Does it run on my own server?</summary><p>Yes. ShipLean is self-hosted, and every team&#x27;s projects can live on one server you control. See the <a href="/self-hosted">self-hosted page</a> for what you need.</p></details><details><summary>Does it import from Jira?</summary><p>Yes. You can move a <a href="/jira-alternative">Jira project</a> into ShipLean with its history, comments and sprints. You review how everything will come across before anything is imported, and your Jira stays exactly as it was.</p></details><details><summary>Which agents can connect?</summary><p><a href="/mcp">Claude Code, Claude Desktop, Cursor and any other MCP client</a> that supports OAuth. You approve each agent in the browser and can revoke it at any time.</p></details></div>
+      <div class="faq"><details><summary>Is ShipLean free?</summary><p>Yes. ShipLean is free and open source, and you host it yourself. The docs show how to install it.</p></details><details><summary>Does it run on my own server?</summary><p>Yes. ShipLean is self-hosted, and every team&#x27;s projects can live on one server you control. See the <a href="/self-hosted">self-hosted page</a> for what you need.</p></details><details><summary>Does it import from Jira?</summary><p>Yes. You can move a <a href="/jira-alternative">Jira project</a> into ShipLean with its history, comments and sprints. You review how everything will come across before anything is imported, and your Jira stays exactly as it was.</p></details><details><summary>Which agents can connect?</summary><p><a href="/mcp">Claude Code, Claude Desktop, Cursor and any other MCP client</a> that supports OAuth. You approve each agent in the browser and can revoke it at any time.</p></details><details><summary>Do agents learn from past sprints?</summary><p>Yes. When an agent finishes a story it logs a <a href="#retro">retrospective</a>: what went well, what went badly and why, what to improve and what the plan missed. ShipLean groups the points into themes across sprints, you raise action items from them, and the lessons go into the planning guide the next agent reads.</p></details></div>
     </div>
   </section>
 
@@ -510,10 +536,11 @@
         <ol class="road">
           <li class="done"><span class="node"><svg><use href="#i-check"/></svg></span><div><b>Design<span class="badge">Done</span></b><span>Every v1 screen, light and dark</span></div></li>
           <li class="done"><span class="node"><svg><use href="#i-check"/></svg></span><div><b>Version 1<span class="badge">Done</span></b><span>Backlogs, boards, sprints, the taskboard, work items, settings and Jira import</span></div></li>
-          <li class="done"><span class="node"><svg><use href="#i-check"/></svg></span><div><b>Agents over MCP<span class="badge">Done</span></b><span>26 tools, browser consent, PR webhooks and a planning guide for agents working in parallel</span></div></li>
+          <li class="done"><span class="node"><svg><use href="#i-check"/></svg></span><div><b>Agents over MCP<span class="badge">Done</span></b><span>35 tools, browser consent, PR webhooks and a planning guide for agents working in parallel</span></div></li>
           <li class="done"><span class="node"><svg><use href="#i-check"/></svg></span><div><b>Bring your own sign-in<span class="badge">Done</span></b><span>Trust the identity proxy you already run</span></div></li>
           <li class="done"><span class="node"><svg><use href="#i-check"/></svg></span><div><b>Open source release<span class="badge">Done</span></b><span>Free to download and host yourself</span></div></li>
           <li class="done"><span class="node"><svg><use href="#i-check"/></svg></span><div><b>Cloud agent integration<span class="badge">Done</span></b><span>Move a story to start a coding agent, and follow its work on the story</span></div></li>
+          <li class="done"><span class="node"><svg><use href="#i-check"/></svg></span><div><b>Retrospectives<span class="badge">Done</span></b><span>Agents and people log what went well and badly, with recurring themes, action items and their impact</span></div></li>
           <li class="now"><span class="node"></span><div><b>Next<span class="badge">Building</span></b><span>Roadmaps and delivery plans across teams</span></div></li>
         </ol>
       </div>
